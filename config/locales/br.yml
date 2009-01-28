@@ -60,6 +60,7 @@ br:
     tasks: 'Tarefas'
   tasks:
     new: 'Nova Tarefa'
+    edit: 'Editar Tarefa'
     tasks: 'Tarefas:'
     task: 'Tarefa:'
   clients:
@@ -69,11 +70,15 @@ br:
   comments:
     comment: 'Comentário'
     comments: 'Comentários'
-    closed: 'Fechado para comentários'
+  messages:
+    clients:
+      blank: 'Não existe nenhum Cliente.'
+    comments:
+      closed: 'Fechado para comentários'
   activerecord:
     errors:
       models:
         project:
           attributes:
             name:
-              blank: 'O Nome do cliente é obrigatório.'
+              blank: 'O nome do projeto é obrigatório.'

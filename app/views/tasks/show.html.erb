@@ -1,7 +1,6 @@
 <h3><%= t('projects.project') %> <%= link_to @project.name, @project %></h3>
-<%= t('tasks.task') %><br />
-<%= t('labels.name') %> <%= @task.name %>
-<%= t('labels.message') %> <%= simple_format(@task.message) %>
+<h4><%= t('tasks.task') %> <%= @task.name %></h4>
+<%= simple_format(@task.message) %>
 </dl>
 <% content_for(:menubar) do %>
 	<% content_tag(:ul, :id => "submenu") do %>
@@ -23,6 +22,6 @@
 		  <% end %>
 		<% end %>
 	<% else %>
-	<h5><%= t('comments.closed') %></h5>
+	<h5><%= t('messages.comments.closed') %></h5>
 	<% end %>
 </div>

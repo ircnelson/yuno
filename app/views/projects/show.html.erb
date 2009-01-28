@@ -4,9 +4,12 @@
   <li><%= link_to t('link.edit'), edit_project_path(@project), :class => 'projects' %></li>
 </ul>
 <% end %>
-<h3><%= t('projects.project') %> <%= link_to(@project.name, edit_project_path(@project)) %></h3>
-<h4><%= t('clients.client') %> <%= link_to(@project.client.client, @project.client) %></h4>
+
+<h4><%= t('projects.project') %> <%= link_to(@project.name, edit_project_path(@project)) %></h4>
+<h5><%= t('clients.client') %> <%= link_to(@project.client.client, @project.client) %></h5>
+
 <hr />
+
 <div id="project-tasks" class="main-box">
 	<h2><%= t('projects.tasks') %> (<%= @project.tasks.count %>)</h2>
 	<table width="100%">

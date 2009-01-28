@@ -6,16 +6,29 @@ html, body, h1, h2, h3, h4, h5, h6 {
 	padding:0;
 	list-style: none;
 }
+
 form p {
 	margin: 5px 0;
 }
+form input, form textarea {
+	padding: 2px;
+	color: #333;
+	border: 1px solid #ccc;
+	background: #ddd;
+}
 a {
-	color: #219AEE;
-	text-decoration: none;
+	color: #00638B;
+	text-decoration: underline;
 }
 a:hover {
-	color: #779AEE;
+	color: #8B638B;
+	/* #BFDAFF; */
 }
+a:visited {
+	color: #6692CD;
+	text-decoration: none/* line-through */;
+}
+
 h1 {
 	font-size: 45px;
 }
@@ -24,6 +37,7 @@ h2 {
 }
 h3 {
 	font-size: 18px;
+	border-bottom: 1px solid;
 }
 h4 {
 	font-size: 16px;
@@ -33,7 +47,8 @@ h5 {
 }
 
 #header {
-	background: #ccc;
+	color: #fff;
+	background: #BFD2FF;
 	height: 90px;
 }
 #header h1 a {
@@ -52,9 +67,28 @@ h5 {
 	padding: 4px 10px;
 	margin: 0 0 10px 0;
 }
+
 #main {
 	margin: 15px 220px 0 220px;
 }
+
+#main table {
+	width: 100%;
+}
+
+#main table tr {
+	text-align: left;
+}
+
+#main table tr th {
+	padding: 5px;
+}
+
+#main table tr td {
+	font-size: 12px;
+	padding: 6px 2px;
+}
+
 #main .main-box {
 	border: 1px solid #ddd;
 	margin: 0 0 20px 0;
@@ -165,19 +199,6 @@ h5 {
 	clear: both;
 }
 
-#main table {
-	width: 100%;
-}
-#main table tr {
-	text-align: left;
-}
-#main table tr th {
-	padding: 5px;
-}
-#main table tr td {
-	font-size: 12px;
-	padding: 6px 2px;
-}
 tr.light {
 	color: #00638B;
 	background: #E8ECFF;
@@ -186,8 +207,22 @@ tr.dark {
 	color: #00638B;
 	background: #DADAFF;
 }
-
-
+p#related {
+	background: #ddd;
+	border: 1px solid #ccc;
+	width: 200px;
+	text-align: left;
+	padding: 2px 5px 5px 5px;
+	font-size: 12px;
+}
+a.btn-cancel {
+	color: #333;
+	padding: 3px 6px;
+	line-height: 180%;
+	font-size: 12px;
+	background: #ddd;
+	border: 1px solid #ccc;
+}
 
 
 
