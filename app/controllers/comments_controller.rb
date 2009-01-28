@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
 	before_filter :get_task_id
 
   def new
