@@ -12,8 +12,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @task.comments.build(params[:comment])
-    #@comment.update_task
-    #@task.update_attribute(:updated_at, Time.now.to_s(:db))    
     respond_to do |format|
       if @comment.save
         flash[:notice] = 'Comment was successfully created.'
