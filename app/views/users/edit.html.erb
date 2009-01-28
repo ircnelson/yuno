@@ -1,0 +1,8 @@
+<% form_for(@user) do |u| %>
+<p><%= u.label :name %><br /><%= u.text_field :name %></p>
+<p><%= u.label :email %><br /><%= u.text_field :email %></p>
+<% if is_admin? %>
+	<%= u.select :level, [["Administrador", "admin"], ["Colaborador", "colaborador"], ["Normal", "normal"]] %>
+<% end %>
+<p><%= u.submit 'Salvar' %> <%= link_to 'Cancelar', profile_path %></p>
+<% end %>

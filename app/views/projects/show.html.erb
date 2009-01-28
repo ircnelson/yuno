@@ -1,0 +1,16 @@
+<% content_for(:menubar) do %>
+<ul id="submenu">
+  <li><%= link_to t('tasks.new'), new_project_task_path(@project), :class => 'projects' %></li>
+  <li><%= link_to t('link.edit'), edit_project_path(@project), :class => 'projects' %></li>
+</ul>
+<% end %>
+<h3><%= t('labels.name') %></h3>
+<p><%=h @project.name %></p>
+<h3><%= t('clients.client') %></h3>
+<p><%= @project.client.client %></p>
+<h4><%= t('projects.tasks') %></h4>
+<ul>
+	<% @project.tasks.each do |t| %>
+    <li><%= link_to(t.name, project_task_path(@project, t)) %></li>
+	<% end %>
+</ul>

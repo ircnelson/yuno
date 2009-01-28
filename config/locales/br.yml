@@ -1,0 +1,71 @@
+br:
+  flash:
+    signup: 'Obrigado por se registrar! Foi enviado um código para ativação do cadastro.'
+    login: 'Autenticado com sucesso.'
+    logout: 'Sessão finalizada.'
+  labels:
+    name: 'Nome:'
+    message: 'Mensagem:'
+    client: 'Cliente:'
+    coordenator: 'Coordenador:'
+  header:
+    date: 'Data'
+    time: 'Hora'
+    author: 'Autor'
+    email: 'E-mail'
+    project: 'Projeto'
+    task: 'Tarefa'
+    user: 'Usuário'
+    ip_address: 'Endereço IP'
+    comment: 'Comentário'
+    name: 'Nome'
+    coordinator: 'Coordenador'
+    date_begin: 'Data Inicial'
+    date_end: 'Data Final'
+    last_task: 'Última Atualização'
+    box:
+      tasks: 'Tarefas Recentes'
+      comments: 'Últimos Comentários'
+      logons: 'Últimos acessos'
+      projects: 'Projetos'
+      clients: 'Clientes'
+    sidebar:
+      connections: 'Usuários Conectados'
+  link:
+    home: 'Página Inicial'
+    projects: 'Projetos'
+    clients: 'Clientes'
+    users: 'Usuários'
+    edit: 'Editar'
+    cancel: 'Cancelar'
+    back: 'Voltar'
+    join: 'Entrar'
+    logout: 'Sair'
+  button:
+    add: 'Adicionar'
+    save: 'Salvar'
+  users:
+    new: 'Novo Cliente'
+    users: 'Usuários:'
+    user: 'Usuário:'
+  projects:
+    new: 'Novo Projeto'
+    edit: 'Editar Projeto'
+    projects: 'Projetos:'
+    project: 'Projeto:'
+    tasks: 'Tarefas'
+  tasks:
+    new: 'Nova Tarefa'
+    tasks: 'Tarefas:'
+    task: 'Tarefa:'
+  clients:
+    new: 'Novo Cliente'
+    clients: 'Clientes:'
+    client: 'Cliente:'
+  activerecord:
+    errors:
+      models:
+        project:
+          attributes:
+            name:
+              blank: 'O Nome do cliente é obrigatório.'

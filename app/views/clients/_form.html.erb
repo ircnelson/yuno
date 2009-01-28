@@ -1,0 +1,38 @@
+<% form_for(@client) do |f| %>
+  <%= f.error_messages %>
+  <% field_set_tag "Dados Cadastrais" do %>
+  <p>
+    <%= f.label :client %><br />
+    <%= f.text_field :client %>
+  </p>
+  <p>
+    <%= f.label :coordinator %><br />
+    <%= f.text_field :coordinator %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <% end %>
+  <% field_set_tag "Informações Complementares" do %>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :address_state %><br />
+    <%= select_estado 'client', :address_state %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.submit btn_submit %> <%= link_to 'Cancelar', (@client.new_record? ? clients_path : client_path(@client)) %>
+  </p>
+<% end %>

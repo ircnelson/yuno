@@ -1,0 +1,18 @@
+<h3>Projeto: <%= link_to @project.name, @project %></h3>
+<h4><%=h @task.name %></h4>
+<%= simple_format(@task.message) %>
+
+<%= link_to 'Editar', edit_project_task_path(@project, @task) %> |
+<%= "#{link_to('Remover', project_task_path(@project, @task), :confirm => "Você tem certeza?", :method => :delete)} |" if !@task.open? %>
+<%= (@task.open? ? "#{link_to 'Fechar', close_project_task_path(@project, @task)}" : "#{link_to 'Abrir', open_project_task_path(@project, @task)}") %>
+
+<% if @task.open? %>
+  <h3>Comentários</h3>
+  <%= render :partial => "comments/form", :locals => { :btn_submit => "Adicionar" } %>
+  <% @comments.each do |comment| %>
+    <small><%= distance_of_time_in_words_to_now(comment.created_at) %></small> <%= comment.user.name %>
+    <%= simple_format(comment.message) %>
+  <% end %>
+<% else %>
+<h3>Fechado para comentários</h3>
+<% end %>

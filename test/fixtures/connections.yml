@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  logon: 2009-01-27 15:41:41
+  : 2009-01-27 15:41:41
+  address_ip: MyString
+
+two:
+  user_id: 1
+  logon: 2009-01-27 15:41:41
+  : 2009-01-27 15:41:41
+  address_ip: MyString

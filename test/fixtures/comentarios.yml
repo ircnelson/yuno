@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mensagem: MyText
+  usuario_id: 1
+  tarefa_id: 1
+
+two:
+  mensagem: MyText
+  usuario_id: 1
+  tarefa_id: 1
