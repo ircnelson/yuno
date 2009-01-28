@@ -1,11 +1,11 @@
 class Task < ActiveRecord::Base
-	has_many :comments, :dependent => :destroy
+	has_many :comments, :dependent => :destroy, :order => 'id desc'
 	belongs_to :project
 	belongs_to :user
 	validates_presence_of :name
 
 	named_scope :recent, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 2.days.ago)] } }
-	
+
 	def open!
 		 write_attribute :state, "open"
 		 save()

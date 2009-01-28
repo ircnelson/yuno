@@ -16,6 +16,8 @@ br:
     project: 'Projeto'
     task: 'Tarefa'
     user: 'Usuário'
+    client: 'Cliente'
+    comment: 'Comentário'
     ip_address: 'Endereço IP'
     comment: 'Comentário'
     name: 'Nome'
@@ -37,6 +39,8 @@ br:
     clients: 'Clientes'
     users: 'Usuários'
     edit: 'Editar'
+    close: 'Fechar'
+    open: 'Abrir'
     cancel: 'Cancelar'
     back: 'Voltar'
     join: 'Entrar'
@@ -62,6 +66,10 @@ br:
     new: 'Novo Cliente'
     clients: 'Clientes:'
     client: 'Cliente:'
+  comments:
+    comment: 'Comentário'
+    comments: 'Comentários'
+    closed: 'Fechado para comentários'
   activerecord:
     errors:
       models:

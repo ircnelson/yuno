@@ -11,13 +11,20 @@ module ApplicationHelper
 			true
 		end
 	end
+
 	def render_form(form, button)
 		render :partial => form, :locals => { :btn_submit => button }
 	end
+
 	def new_render_form
 		render_form('form', t('button.add'))
 	end
+
 	def edit_render_form
 		render_form('form', t('button.save'))
+	end
+	
+	def anchor(anchor)
+		"<a name=\"#{anchor}\"></a>"
 	end
 end

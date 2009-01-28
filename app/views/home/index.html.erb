@@ -4,7 +4,7 @@
   <h2><%= t('header.box.tasks') %></h2>
   <table>
     <thead>
-      <tr align="left">
+      <tr>
         <th width="80"><%= t('header.date') %></th>
         <th width="80"><%= t('header.time') %></th>
         <th width="100"><%= t('header.project') %></th>
@@ -30,7 +30,7 @@
   <h2><%= t('header.box.comments') %></h2>
   <table>
     <thead>
-      <tr align="left">
+      <tr>
         <th width="80"><%= t('header.date') %></th>
         <th width="80"><%= t('header.time') %></th>
         <th width="100"><%= t('header.project') %></th>
@@ -46,7 +46,7 @@
 			  <td><%= created_at.strftime("%T") %></td>
 				<td><%= link_to(comment.task.project.name, comment.task.project) %></td>
 				<td><%= link_to(comment.user.name, comment.user) %></td>
-        <td><%= link_to(comment.message, [comment.task.project, comment.task]) %></td>
+        <td><%= link_to(comment.message, project_task_path(comment.task.project, comment.task, :anchor => "comment-#{comment.id}")) %></td>
       </tr>
 		<% end %>
 		<tbody>
@@ -56,7 +56,7 @@
   <h2><%= t('header.box.logons') %></h2>
   <table>
     <thead>
-      <tr align="left">
+      <tr>
         <th width="80"><%= t('header.date') %></th>
         <th width="80"><%= t('header.time') %></th>
         <th width="100"><%= t('header.user') %></th>

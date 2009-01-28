@@ -1,7 +1,7 @@
 <% form_for([@project, @task, @comment]) do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :message %><br />
+    <%= f.label :message, t('labels.message') %><br />
     <%= f.text_area :message, :rows => 8, :cols => 60 %>
   </p>
   <p>

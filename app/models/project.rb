@@ -5,7 +5,6 @@ class Project < ActiveRecord::Base
 	validates_uniqueness_of :name
 	validates_presence_of :name
 	validates_associated :tasks
-	
-	named_scope :recent, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 1.week.ago)]} }
 
+	named_scope :recent, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 1.week.ago)]} }
 end

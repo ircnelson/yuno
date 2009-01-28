@@ -1,9 +1,7 @@
-html, body {
+html, body, h1, h2, h3, h4, h5, h6 {
 	font-family: tahoma, verdana, arial, helvetica, sans-serif;
 	color: #333;
 	background: #fff;
-}
-* {
 	margin:0;
 	padding:0;
 	list-style: none;
@@ -24,6 +22,16 @@ h1 {
 h2 {
 	font-size: 18px;
 }
+h3 {
+	font-size: 18px;
+}
+h4 {
+	font-size: 16px;
+}
+h5 {
+	font-size: 12px;
+}
+
 #header {
 	background: #ccc;
 	height: 90px;
@@ -72,6 +80,9 @@ h2 {
 	float: right;
 	width: 200px;
 	margin: 15px 0 10px 0;
+}
+#menubar ul {
+	list-style: none;
 }
 #menubar {
 	float: left;
@@ -129,19 +140,41 @@ h2 {
 #menubar ul#menu li a.users:hover {
 	border-right: 5px solid #FFA5FF;
 }
+
+#comments .comment {
+	border: 1px solid #ccc;
+	padding: 2px;
+	margin: 2px 0;
+}
+#comments h5 {
+	font-weight: normal;
+}
+#comments p {
+	font-size: 11px;
+}
+#comments .comment .date {
+	font-size: 10px;
+}
+#comments .comment .user-name {
+	font-size: 12px;
+}
+
 #footer {
 	margin: 15px 0 0 0;
 	text-align: center;
 	clear: both;
 }
 
-.main-box table {
+#main table {
 	width: 100%;
 }
-.main-box table tr th {
+#main table tr {
+	text-align: left;
+}
+#main table tr th {
 	padding: 5px;
 }
-.main-box table tr td {
+#main table tr td {
 	font-size: 12px;
 	padding: 6px 2px;
 }
