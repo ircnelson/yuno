@@ -1,34 +1,34 @@
 <% form_for(@client) do |f| %>
   <%= f.error_messages %>
-  <% field_set_tag "Dados Cadastrais" do %>
+  <% field_set_tag t('header.client.field1') do %>
   <p>
-    <%= f.label :client %><br />
+    <%= f.label :client, t('labels.client') %><br />
     <%= f.text_field :client %>
   </p>
   <p>
-    <%= f.label :coordinator %><br />
+    <%= f.label :coordinator, t('labels.coordinator') %><br />
     <%= f.text_field :coordinator %>
   </p>
   <p>
-    <%= f.label :email %><br />
+    <%= f.label :email, t('labels.email') %><br />
     <%= f.text_field :email %>
   </p>
   <% end %>
-  <% field_set_tag "Informações Complementares" do %>
+  <% field_set_tag t('header.client.field2') do %>
   <p>
-    <%= f.label :phone %><br />
+    <%= f.label :phone, t('labels.phone') %><br />
     <%= f.text_field :phone %>
   </p>
   <p>
-    <%= f.label :city %><br />
+    <%= f.label :city, t('labels.city') %><br />
     <%= f.text_field :city %>
   </p>
   <p>
-    <%= f.label :address_state %><br />
+    <%= f.label :address_state, t('labels.address_state') %><br />
     <%= select_estado 'client', :address_state %>
   </p>
   <p>
-    <%= f.label :address %><br />
+    <%= f.label :address, t('labels.address') %><br />
     <%= f.text_field :address %>
   </p>
   <% end %>

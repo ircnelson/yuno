@@ -19,10 +19,12 @@ ActionController::Routing::Routes.draw do |map|
 		project.resources :tasks, :has_many => :comments, :member => { :close => :get, :open => :get }
 	end
 	
+	map.stats '/stats', :controller => 'home', :action => 'stats'
   map.logout '/sair', :controller => 'users', :action => 'logout'
   map.join '/entrar', :controller => 'users', :action => 'join'
   map.register '/registrar', :controller => 'users', :action => 'registrar'
   map.profile '/perfil', :controller => 'users', :action => 'show'
+	map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
 
   map.resources :clients
   map.resources :comments

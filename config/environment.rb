@@ -70,6 +70,7 @@ Rails::Initializer.run do |config|
   # config.active_record.schema_format = :sql
   
   config.active_record.timestamped_migrations = false
+  config.active_record.observers = :user_observer
 
   # Activate observers that should always be running
   # Please note that observers generated using script/generate observer need to have an _observer suffix

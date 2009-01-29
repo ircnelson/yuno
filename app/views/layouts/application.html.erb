@@ -13,14 +13,16 @@
 <div id="content">
 		<div id="header">
 			<h1><a href="/">YUNO</a></h1>
-			<p id="login"><%= logged_in? ? "#{link_to(current_user.login, profile_path)} (#{link_to(t('link.logout'), logout_path)})" : link_to(t('link.join'), join_path) %></p>
+			<p id="login"><%= logged_in? ? "#{link_to(current_user.login, profile_path)} (#{link_to(t('link.logout'), logout_path)})" : (check_url("users", controller.controller_name)) ? link_to(t('link.home'), "/") : link_to(t('link.join'), join_path) %></p>
 		</div>
 		<div id="menubar">
 			<ul id="menu">
 				<li><%= link_to(t('link.home'), '/', :class => 'index') %></li>
+				<% if is_admin? %>
 				<li><%= link_to(t('link.projects'), projects_path, :class => 'projects') %></li>
 				<li><%= link_to(t('link.clients'), clients_path, :class => 'clients') %></li>
 				<li><%= link_to(t('link.users'), users_path, :class => 'users') %></li>
+				<% end %>
 			</ul>
 			<%= yield :menubar %>
 		</div>

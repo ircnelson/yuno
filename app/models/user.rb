@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :level, :login, :email, :name, :password, :password_confirmation, :session_at
+  attr_accessible :level, :login, :email, :name, :password, :password_confirmation, :session_at, :created_at
 
 	named_scope :recent_auth, lambda { |*args| { :conditions => ["session_at > ?", (args.first || Time.now - 30.minutes)] } }
 

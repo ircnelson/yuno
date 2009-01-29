@@ -69,7 +69,7 @@ h5 {
 }
 
 #main {
-	margin: 15px 220px 0 220px;
+	margin: 15px 360px 0 220px;
 }
 
 #main table {
@@ -112,7 +112,7 @@ h5 {
 }
 #sidebar {
 	float: right;
-	width: 200px;
+	/*width: 200px;*/
 	margin: 15px 0 10px 0;
 }
 #menubar ul {

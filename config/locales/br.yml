@@ -6,8 +6,13 @@ br:
   labels:
     name: 'Nome:'
     message: 'Mensagem:'
+    email: 'E-mail:'
+    phone: 'Telefone:'
+    city: 'Cidade:'
+    address: 'Endereço'
+    address_state: 'Estado'
     client: 'Cliente:'
-    coordenator: 'Coordenador:'
+    coordinator: 'Coordenador:'
   header:
     date: 'Data'
     time: 'Hora'
@@ -31,8 +36,9 @@ br:
       logons: 'Últimos acessos'
       projects: 'Projetos'
       clients: 'Clientes'
-    sidebar:
-      connections: 'Usuários Conectados'
+    client:
+      field1: 'Dados Cadastrais'
+      field2: 'Informações Complementares'
   link:
     home: 'Página Inicial'
     projects: 'Projetos'
@@ -75,6 +81,8 @@ br:
       blank: 'Não existe nenhum Cliente.'
     comments:
       closed: 'Fechado para comentários'
+  access_denied:
+    admin: 'Você não tem permissão.'
   activerecord:
     errors:
       models:
@@ -82,3 +90,9 @@ br:
           attributes:
             name:
               blank: 'O nome do projeto é obrigatório.'
+        client:
+          attributes:
+            client:
+              blank: 'O nome do cliente é obrigatório.'
+            coordinator:
+              blank: 'O coordenator é obrigatório.'

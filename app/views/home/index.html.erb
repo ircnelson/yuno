@@ -1,5 +1,7 @@
 <% content_for(:sidebar) do %>
+	<%= image_tag("stats.png") %>
 <% end %>
+<% if is_admin? %>
 <div id="recent-tasks" class="main-box">
   <h2><%= t('header.box.tasks') %></h2>
   <table>
@@ -76,3 +78,6 @@
 		<tbody>
   </table>
 </div>
+<% else %>
+	<p><%= t('access_denied.admin') %></p>
+<% end %>
