@@ -110,6 +110,7 @@ a {
   font-weight: bold;
   with: 90%;
   padding: 10px;
+  margin: 0 0 10px 0;
   color: #fff;
   border: 2px solid #8B1300;
   border-left-color: #FF3919;
@@ -122,6 +123,7 @@ a {
   font-weight: bold;
   with: 90%;
   padding: 10px;
+  margin: 0 0 10px 0;
   color: #fff;
   border: 2px solid #66CD00;
   border-left-color: #BFFF7F;

@@ -1,4 +1,63 @@
-"br":
+br:
+  activerecord:
+    models:
+      client: 'cliente'
+      project: 'projeto'
+      user: 'usuário'
+      task: 'tarefa'
+    attributes:
+      project:
+        name: 'Nome'
+        client: 'Cliente'
+      task:
+        name: 'Nome'
+      client:
+        client: 'Cliente'
+        coordinator: 'Coordenador'
+    errors:
+      template:
+        header:
+          one:    "1 erro impedindo {{model}} de ser salvo"
+          other:  "{{count}} erros impedindo {{model}} de ser salvo"
+        body: "Houve problemas com os seguintes campos:"
+      messages:
+        email_invalid: "deve ser um endereço de e-mail"
+        inclusion: "não está incluído(a) na lista"
+        exclusion: "é reservado(a)"
+        invalid: "é inválido(a)"
+        confirmation: "não corresponde à confirmação"
+        accepted: "deve ser aceito(a)"
+        empty: "deve ser preenchido(a)"
+        blank: "deve ser preenchido(a)"
+        too_long: "deve ter até {{count}} caractere(s)"
+        too_short: "deve ter no mínimo {{count}} caractere(s)"
+        wrong_length: "deve ter {{count}} caractere(s)"
+        taken: "já está em uso"
+        not_a_number: "não é um número"
+        greater_than: "deve ser maior que {{count}}"
+        greater_than_or_equal_to: "deve ser maior ou igual a {{count}}"
+        equal_to: "deve ser igual a {{count}}"
+        less_than: "deve ser menor que {{count}}"
+        less_than_or_equal_to: "deve ser menor ou igual a {{count}}"
+        odd: "deve ser impar"
+        even: "deve ser par"
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+    day_names: [Domingo, Segunda, Terça-feira, Quarta-feira, Quinta-feira, Sexta, Sábado]
+    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sab]
+    month_names: [~, Janeiro, Ferereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
+    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
+    order: [ :day, :month, :year ]
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
   number:
     format:
       separator: "."
@@ -131,18 +190,3 @@
       closed: 'Fechado para comentários'
   access_denied:
     admin: 'Você não tem permissão.'
-  date:
-    formats:
-      default: "%d-%m-%Y"
-
-  activerecord:
-    errors:
-      template:
-        header:
-          one: "1 error prohibited this {{model}} from being saved"
-          other: "{{count}} errors prohibited this {{model}} from being saved"
-        body:
-          one: "There was a problem with the following field:"
-          other: "There were problems with the following fields:"
-      messages:
-        blank: 'não pode estar em branco'

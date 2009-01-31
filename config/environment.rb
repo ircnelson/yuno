@@ -82,6 +82,7 @@ Rails::Initializer.run do |config|
 end
 
 require 'rubygems'
+require 'brhelper'
 require 'will_paginate'
 ActiveRecord::Base.time_zone_aware_attributes = false
 
