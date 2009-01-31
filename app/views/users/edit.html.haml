@@ -1,16 +1,14 @@
 - form_for(@user) do |u|
-%p
-  = u.label :name
-  %br
-  = u.text_field :name
-%p
-  = u.label :email
-  %br
-  = u.text_field :email
-- if is_admin?
-= u.select :level, [["Administrador", "admin"], ["Colaborador", "colaborador"], ["Normal", "normal"]]
-- end
-%p
-  = u.submit t('link.save')
-  = link_to 'Cancelar', profile_path
-- end
+  %p
+    = u.label :name
+    %br
+    = u.text_field :name
+  %p
+    = u.label :email
+    %br
+    = u.text_field :email
+  - if is_admin?
+    = u.select :level, [["Administrador", "admin"], ["Colaborador", "colaborador"], ["Normal", "normal"]]
+  %p
+    = u.submit t('link.save')
+    = link_to 'Cancelar', profile_path
