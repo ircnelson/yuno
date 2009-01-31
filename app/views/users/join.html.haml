@@ -1,0 +1,11 @@
+- form_tag("/users/auth") do
+  %p
+    = label_tag :login
+    %br
+    = text_field_tag :login
+  %p
+    = label_tag :password
+    %br
+    = password_field_tag :password
+  %p
+    = submit_tag t('link.join')

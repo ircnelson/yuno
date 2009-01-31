@@ -1,0 +1,33 @@
+#tasks.main-box
+  %h2
+    = t('header.box.tasks')
+  %table
+    %thead
+      %tr
+        %th{ :width => "80" }
+          = t('header.date')
+        %th{ :width => "80" }
+          = t('header.time')
+        %th{ :width => "100" }
+          = t('header.project')
+        %th{ :width => "150" }
+          = t('header.author')
+        %th
+          = t('header.task')
+    %tbody
+      - @tasks.each do |task|
+      - created_at = task.created_at
+      %tr{ :class => cycle('light', 'dark') }
+        %td
+          = created_at.strftime("%D")
+        %td
+          = created_at.strftime("%T")
+        %td
+          = link_to(task.project.name, project_path(task.project))
+        %td
+          = link_to(task.user.name, task.user)
+        %td
+          = link_to(task.name, [task.project, task])
+      - end
+    %tbody
+= will_paginate @tasks

@@ -1,0 +1,25 @@
+- content_for(:menubar) do
+  %ul#submenu
+    %li
+      = link_to t('clients.new'), new_client_path, :class => 'clients'
+#clients-list.main-box
+  %h2
+    = t('header.box.clients')
+  %table
+    %thead
+      %tr{ :align => "left" }
+        %th{ :width => "80" }
+          = t('header.name')
+        %th{ :width => "80" }
+          = t('header.coordinator')
+        %th{ :width => "100" }
+          = t('header.email')
+    %tbody
+      - @clients.each do |client|
+        %tr{ :class => cycle('light', 'dark') }
+          %td
+            = link_to(client.client, client)
+          %td
+            = client.coordinator
+          %td
+            = client.email

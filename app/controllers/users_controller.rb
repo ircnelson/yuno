@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
   
   # Protect these actions behind an admin login
-  before_filter :admin_required, :only => [:index, :suspend, :unsuspend, :destroy, :purge]
+  before_filter :admin_required, :only => [:index, :suspend, :unsuspend, :destroy, :purge, :forceactivate]
   before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
 
   def index
-		@users = User.all
+		@users = User.paginate(:page => params[:page], :order => 'created_at desc')
+		respond_to do |format|
+	    format.html
+		end
   end
   
   # register.html.erb
@@ -115,6 +118,11 @@ class UsersController < ApplicationController
   def unsuspend
     @user.unsuspend! 
     redirect_to users_path
+  end
+  
+  def forceactivate
+  	@user.activate!
+  	redirect_to users_path
   end
 
   def destroy

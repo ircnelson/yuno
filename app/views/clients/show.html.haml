@@ -1,0 +1,31 @@
+%p
+  %b
+    Client:
+  = h @client.client
+%p
+  %b
+    Coordenador:
+  = h @client.coordinator
+%p
+  %b
+    Email:
+  = h @client.email
+%p
+  %b
+    Telefone:
+  = h @client.phone
+%p
+  %b
+    Cidade:
+  = h @client.city
+%p
+  %b
+    Estado:
+  = h @client.address_state
+%p
+  %b
+    Endereco:
+  = h @client.address
+= link_to t('link.edit'), edit_client_path(@client)
+|
+= link_to t('link.back'), clients_path

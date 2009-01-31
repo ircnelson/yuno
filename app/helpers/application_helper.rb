@@ -17,11 +17,11 @@ module ApplicationHelper
 	end
 
 	def new_render_form
-		render_form('form', t('button.add'))
+		render_form('form', t('link.add'))
 	end
 
 	def edit_render_form
-		render_form('form', t('button.save'))
+		render_form('form', t('link.save'))
 	end
 	
 	def anchor(anchor)

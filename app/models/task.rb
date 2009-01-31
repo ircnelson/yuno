@@ -1,4 +1,7 @@
 class Task < ActiveRecord::Base
+	cattr_reader :per_page
+  @@per_page = 10
+	
 	has_many :comments, :dependent => :destroy, :order => 'id desc'
 	belongs_to :project
 	belongs_to :user

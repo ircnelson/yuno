@@ -1,0 +1,17 @@
+%p#related
+  = t('projects.project')
+  = link_to(@project.name, @project)
+- form_for([@project, @task]) do |f|
+  = f.error_messages
+  %p
+    = f.label :name, t('labels.name')
+    %br
+    = f.text_field :name
+  %p
+    = f.label :message, t('labels.message')
+    %br
+    = f.text_area :message, :rows => 15, :cols => 80
+  %p
+    = f.hidden_field :user_id, :value => current_user.id
+    = f.submit btn_submit
+    = link_to(t('link.cancel'), (@task.new_record? ? project_path(@project) : project_task_path(@project, @task)), :class => 'btn-cancel')

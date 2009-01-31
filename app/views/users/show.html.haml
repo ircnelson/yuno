@@ -1,0 +1,10 @@
+%p
+  Nome:
+  = @user.name
+%p
+  Login:
+  = @user.login
+%p
+  Email:
+  = @user.email
+= link_to 'Editar perfil', edit_user_path(@user) if @user.login === current_user.login

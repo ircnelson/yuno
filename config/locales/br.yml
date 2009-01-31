@@ -5,6 +5,7 @@ br:
     logout: 'Sessão finalizada.'
   labels:
     name: 'Nome:'
+    login: 'Login:'
     message: 'Mensagem:'
     email: 'E-mail:'
     phone: 'Telefone:'
@@ -51,9 +52,10 @@ br:
     back: 'Voltar'
     join: 'Entrar'
     logout: 'Sair'
-  button:
     add: 'Adicionar'
     save: 'Salvar'
+    suspend: 'Banir'
+    unsuspend: 'Desbanir'
   users:
     new: 'Novo Cliente'
     users: 'Usuários:'
@@ -85,14 +87,12 @@ br:
     admin: 'Você não tem permissão.'
   activerecord:
     errors:
-      models:
-        project:
-          attributes:
-            name:
-              blank: 'O nome do projeto é obrigatório.'
-        client:
-          attributes:
-            client:
-              blank: 'O nome do cliente é obrigatório.'
-            coordinator:
-              blank: 'O coordenator é obrigatório.'
+      template:
+        header:
+          one: "1 error prohibited this {{model}} from being saved"
+          other: "{{count}} errors prohibited this {{model}} from being saved"
+        body:
+          one: "There was a problem with the following field:"
+          other: "There were problems with the following fields:"
+      messages:
+        blank: 'não pode estar em branco'

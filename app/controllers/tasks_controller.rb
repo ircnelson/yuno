@@ -1,10 +1,14 @@
 class TasksController < ApplicationController
 
-	before_filter :get_project_id, :except => [:open, :close]
+	before_filter :get_project_id, :except => [:index, :open, :close]
 	before_filter :find_task, :only => [:show, :edit, :update, :destroy, :open, :close]
 
+	def index
+		@tasks = Task.paginate(:page => params[:page], :order => 'created_at DESC', :limit => 1)
+	end
+
   def show
-  	@comments = @task.comments.all
+  	@comments = @task.comments.paginate(:page => params[:page])
   	@comment = @task.comments.build
   end
 

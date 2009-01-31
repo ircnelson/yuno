@@ -1,0 +1,38 @@
+- form_for(@client) do |f|
+= f.error_messages
+- field_set_tag t('header.client.field1') do
+%p
+  = f.label :client, t('labels.client')
+  %br
+  = f.text_field :client
+%p
+  = f.label :coordinator, t('labels.coordinator')
+  %br
+  = f.text_field :coordinator
+%p
+  = f.label :email, t('labels.email')
+  %br
+  = f.text_field :email
+- end
+- field_set_tag t('header.client.field2') do
+%p
+  = f.label :phone, t('labels.phone')
+  %br
+  = f.text_field :phone
+%p
+  = f.label :city, t('labels.city')
+  %br
+  = f.text_field :city
+%p
+  = f.label :address_state, t('labels.address_state')
+  %br
+  = select_estado 'client', :address_state
+%p
+  = f.label :address, t('labels.address')
+  %br
+  = f.text_field :address
+- end
+%p
+  = f.submit btn_submit
+  = link_to(t('link.cancel'), (@client.new_record? ? clients_path : client_path(@client)), :class => 'btn-cancel')
+- end

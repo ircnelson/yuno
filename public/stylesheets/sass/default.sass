@@ -1,0 +1,320 @@
+=default-fonts
+  :font-family tahoma, verdana, arial, helvetica, sans-serif
+
+html, body
+  +default-fonts
+  :color #333
+  :background #fff
+  :margin 0
+  :padding 0
+  :list-style none
+
+
+h1
+  +default-fonts
+  :color #333
+  :background #fff
+  :margin 0
+  :padding 0
+  :list-style none
+  :font-size 45px
+
+
+h2
+  +default-fonts
+  :color #333
+  :background #fff
+  :margin 0
+  :padding 0
+  :list-style none
+  :font-size 18px
+
+
+h3
+  +default-fonts
+  :color #333
+  :background #fff
+  :margin 0
+  :padding 0
+  :list-style none
+  :font-size 18px
+  :border-bottom 1px solid
+
+
+h4
+  +default-fonts
+  :color #333
+  :background #fff
+  :margin 0
+  :padding 0
+  :list-style none
+  :font-size 16px
+
+
+h5
+  +default-fonts
+  :color #333
+  :background #fff
+  :margin 0
+  :padding 0
+  :list-style none
+  :font-size 12px
+
+
+h6
+  +default-fonts
+  :color #333
+  :background #fff
+  :margin 0
+  :padding 0
+  :list-style none
+
+
+form
+  p
+    :margin 5px 0
+
+  input, textarea
+    :padding 2px
+    :color #333
+    :border 1px solid #ccc
+    :background #ddd
+
+
+a
+  :color #00638B
+  :text-decoration underline
+
+  &:hover
+    :color #8B638B
+
+  &:visited
+    :color #6692CD
+    :text-decoration none/* line-through */
+
+  &.btn-cancel
+    :color #333
+    :padding 3px 6px
+    :line-height 180%
+    :font-size 12px
+    :background #ddd
+    :border 1px solid #ccc
+
+
+#header
+  :color #fff
+  :background #BFD2FF
+  :height 90px
+
+  h1 a
+    :float left
+    :width 200px
+    :height 60px
+
+  p#login
+    :float right
+    :margin 10px 15px 0 0
+
+=flash-style
+  :with 90%
+
+#flash-notice
+  +flash-style
+  :color #008B00
+  :border 1px solid #008B00
+  :background #BFFFBF
+  :padding 4px 10px
+  :margin 0 0 10px 0
+
+
+#main
+  :margin 15px 360px 0 220px
+
+  table
+    :width 100%
+
+    tr
+      :text-align left
+
+      th
+        :padding 5px
+
+      td
+        :font-size 12px
+        :padding 6px 2px
+
+  .main-box
+    :border 1px solid #ddd
+    :margin 0 0 20px 0
+    :color #999
+
+    h2
+      :border-bottom 1px solid #ccc
+      :border-right 1px solid #ccc
+      :padding 5px 5px
+
+    ul
+      :padding 5px
+
+      li
+        :font-size 14px
+
+        a
+          :text-decoration none
+
+
+#sidebar
+  :float right
+  :margin 15px 0 10px 0
+
+
+#menubar
+  :float left
+  :width 200px
+  :margin 15px 0 0 10px
+
+  ul
+    :list-style none
+
+    &#menu li
+      :text-transform uppercase
+      :margin 1px 0 0 0
+
+      a
+        :font-size 12px
+        :text-decoration none
+        :text-align right
+        :display block
+        :padding 4px
+        :color #000
+        :border 0px solid #cdcdcd
+
+        &.index
+          :border-bottom 1px solid #FF2300
+
+          &:hover
+            :border-right 5px solid #FF2300
+
+        &.projects
+          :border-bottom 1px solid #7FFF00
+
+          &:hover
+            :border-right 5px solid #7FFF00
+
+        &.clients
+          :border-bottom 1px solid #00A5FF
+
+          &:hover
+            :border-right 5px solid #00A5FF
+
+        &.users
+          :border-bottom 1px solid #FFA5FF
+
+          &:hover
+            :border-right 5px solid #FFA5FF
+
+    &#submenu li
+      :text-transform uppercase
+      :margin 1px 0 0 0
+
+      a
+        :font-size 12px
+        :text-decoration none
+        :text-align right
+        :display block
+        :padding 4px
+        :color #000
+        :border 0px solid #cdcdcd
+
+        &.projects
+          :border-bottom 1px solid #7FFF00
+
+          &:hover
+            :border-right 5px solid #7FFF00
+
+        &.clients
+          :border-bottom 1px solid #00A5FF
+
+          &:hover
+            :border-right 5px solid #00A5FF
+
+
+#submenu
+  :margin-top 40px
+
+
+#comments
+  .comment
+    :border 1px solid #ccc
+    :padding 2px
+    :margin 2px 0
+
+    .date
+      :font-size 10px
+
+    .user-name
+      :font-size 12px
+
+  h5
+    :font-weight normal
+
+  p
+    :font-size 11px
+
+
+#footer
+  :margin 15px 0 0 0
+  :text-align center
+  :clear both
+
+
+tr
+  &.light
+    :color #00638B
+    :background #E8ECFF
+
+  &.dark
+    :color #00638B
+    :background #DADAFF
+
+
+p#related
+  :background #ddd
+  :border 1px solid #ccc
+  :width 200px
+  :text-align left
+  :padding 2px 5px 5px 5px
+  :font-size 12px
+
+
+.fieldWithErrors
+  :padding 2px
+  :background-color red
+  :display table
+
+
+#errorExplanation
+  :width 400px
+  :border 2px solid red
+  :padding 7px
+  :padding-bottom 12px
+  :margin-bottom 20px
+  :background-color #f0f0f0
+
+  h2
+    :text-align left
+    :font-weight bold
+    :padding 5px 5px 5px 15px
+    :font-size 12px
+    :margin -7px
+    :background-color #c00
+    :color #fff
+
+  p
+    :color #333
+    :margin-bottom 0
+    :padding 5px
+
+  ul li
+    :font-size 12px
+    :list-style square

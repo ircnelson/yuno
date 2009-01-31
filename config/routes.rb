@@ -8,15 +8,16 @@ ActionController::Routing::Routes.draw do |map|
 
 	map.aliases :actions,	:new => 'novo',
 													:edit => 'editar',
-													:suspend => 'desativar',
-													:unsuspend => 'ativar',
+													:suspend => 'banir',
+													:unsuspend => 'desbanir',
 													:close => 'fechar',
 													:open => 'abrir',
 													:logout => 'sair',
 													:join => 'entrar'
 	
 	map.resources :projects, :has_many => :tasks do |project|
-		project.resources :tasks, :has_many => :comments, :member => { :close => :get, :open => :get }
+		project.resources :tasks,	 	:has_many => :comments,
+																:member => { :close => :get, :open => :get }
 	end
 	
 	map.stats '/stats', :controller => 'home', :action => 'stats'
@@ -28,7 +29,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :clients
   map.resources :comments
-	map.resources :users, :member => {		:suspend   => :get,
+  map.resources :tasks
+	map.resources :users, :member => {		:forceactivate => :get,
+																				:suspend   => :get,
 																				:unsuspend => :get,
 																				:purge     => :delete }
 

@@ -1,6 +1,9 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
+	cattr_reader :per_page
+  @@per_page = 10
+  
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken

@@ -1,0 +1,92 @@
+- content_for(:sidebar) do
+  = image_tag("stats.png") if is_admin?
+- if is_admin?
+  #recent-tasks.main-box
+    %h2
+      = t('header.box.tasks')
+    %table
+      %thead
+        %tr
+          %th{ :width => "80" }
+            = t('header.date')
+          %th{ :width => "80" }
+            = t('header.time')
+          %th{ :width => "100" }
+            = t('header.project')
+          %th{ :width => "150" }
+            = t('header.author')
+          %th
+            = t('header.task')
+      %tbody
+        - @tasks.each do |task|
+          - created_at = task.created_at
+          %tr{ :class => cycle('light', 'dark') }
+            %td
+              = created_at.strftime("%D")
+            %td
+              = created_at.strftime("%T")
+            %td
+              = link_to(task.project.name, project_path(task.project))
+            %td
+              = link_to(task.user.name, task.user)
+            %td
+              = link_to(task.name, [task.project, task])
+  #last-comments.main-box
+    %h2
+      = t('header.box.comments')
+    %table
+      %thead
+        %tr
+          %th{ :width => "80" }
+            = t('header.date')
+          %th{ :width => "80" }
+            = t('header.time')
+          %th{ :width => "100" }
+            = t('header.project')
+          %th{ :width => "150" }
+            = t('header.author')
+          %th
+            = t('header.comment')
+      %tbody
+        - @comments.each do |comment|
+          - created_at = comment.created_at
+          %tr{ :class => cycle('light', 'dark') }
+            %td
+              = created_at.strftime("%D")
+            %td
+              = created_at.strftime("%T")
+            %td
+              = link_to(comment.task.project.name, comment.task.project)
+            %td
+              = link_to(comment.user.name, comment.user)
+            %td
+              = link_to(comment.message, project_task_path(comment.task.project, comment.task, :anchor => "comment-#{comment.id}"))
+  #last-viewers.main-box
+    %h2
+      = t('header.box.logons')
+    %table
+      %thead
+        %tr
+          %th{ :width => "80" }
+            = t('header.date')
+          %th{ :width => "80" }
+            = t('header.time')
+          %th{ :width => "100" }
+            = t('header.user')
+          %th
+            = t('header.ip_address')
+      %tbody
+        - @connections.each do |connection|
+          - logon = connection.logon
+          %tr{ :class => cycle('light', 'dark') }
+            %td
+              = logon.strftime('%D')
+            %td
+              = logon.strftime('%T')
+            %td
+              = link_to(connection.user.name, connection.user)
+            %td
+              = connection.address_ip
+- else
+  %p#flash-notice
+    = t('access_denied.admin')

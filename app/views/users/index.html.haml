@@ -1,0 +1,26 @@
+%h3
+  Lista de usuários
+%table
+  %thead
+    %tr
+      %th{ :width => '150' }
+        Nome
+      %th
+        Login
+      %th
+        Ações
+  %tbody
+    - @users.each do |u|
+      %tr
+        %td
+          = u.name
+        %td
+          = u.login
+        %td
+          == (#{link_to t('link.edit'), edit_user_path(u)} | #{(!u.suspended?) ? link_to(t('link.suspend'), suspend_user_path(u)) : link_to(t('link.unsuspend'), unsuspend_user_path(u))})
+  - if @users.blank?
+    %tr
+      %td
+        Nenhum usuário cadastrado
+
+= will_paginate @users

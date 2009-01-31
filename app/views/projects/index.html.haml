@@ -1,0 +1,33 @@
+- content_for(:menubar) do
+  %ul#submenu
+    %li
+      = link_to t('projects.new'), new_project_path, :class => 'projects'
+#projects-list.main-box
+  %h2
+    = t('header.box.projects')
+  %table
+    %thead
+      %tr{ :align => "left" }
+        %th{ :width => "80" }
+          = t('header.name')
+        %th{ :width => "80" }
+          = t('header.coordinator')
+        %th{ :width => "70" }
+          = t('header.date_begin')
+        %th{ :width => "70" }
+          = t('header.date_end')
+        %th{ :width => "100" }
+          = t('header.last_task')
+    %tbody
+      - @projects.each do |project|
+        %tr{ :class => cycle('light', 'dark') }
+          %td
+            = link_to(project.name, project)
+          %td
+            = project.client.coordinator
+          %td
+            DD/MM/YYYY
+          %td
+            DD/MM/YYYY
+          %td
+            = project.tasks.maximum('commented_at')

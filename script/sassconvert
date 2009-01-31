@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../config/boot'
+
+class ToHaml
+  def initialize(path)
+    @path = path
+  end
+
+  def convert!
+    Dir["#{@path}/**/*.css"].each do |file|
+    	`#{RAILS_ROOT}/vendor/plugins/haml/bin/css2sass #{file} #{file.gsub(/\.css$/, '.sass')}`
+      puts `#{RAILS_ROOT}/vendor/plugins/haml/bin/css2sass #{file} #{file.gsub(/\.css$/, '.sass')}`
+    end
+  end
+end
+
+path = File.join(RAILS_ROOT, 'public', 'stylesheets')
+ToHaml.new(path).convert!

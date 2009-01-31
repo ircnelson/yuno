@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../config/boot'
+
+class ToHaml
+  def initialize(path)
+    @path = path
+  end
+
+  def convert!
+    Dir["#{@path}/**/*.erb"].each do |file|
+    	`#{RAILS_ROOT}/vendor/plugins/haml/bin/html2haml -rx #{file} #{file.gsub(/\.erb$/, '.haml')}`
+      puts "#{RAILS_ROOT}/vendor/plugins/haml/bin/html2haml -rx #{file} #{file.gsub(/\.erb$/, '.haml')}"
+    end
+  end
+end
+
+path = File.join(RAILS_ROOT, 'app', 'views')
+ToHaml.new(path).convert!
