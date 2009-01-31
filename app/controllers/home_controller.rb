@@ -14,9 +14,10 @@ class HomeController < ApplicationController
 
   def stats
 
-    g = Gruff::Line.new('350x200')
+    g = Gruff::Line.new('600x200')
     g.theme = {
-       :colors => ['#ff6600', '#3bb000', '#1e90ff', '#efba00', '#0aaafd'],
+       #:colors => ['#ff6600', '#3bb000', '#1e90ff', '#efba00', '#0aaafd'],
+       :colors => ['#FFA5FF', '#7FFF00', '#1e90ff', '#efba00', '#0aaafd'],
        :marker_color => '#aaa',
        :background_colors => ['#eaeaea', '#fff']
      }

@@ -6,31 +6,33 @@
     = stylesheet_link_tag 'default'
     = yield :header
   %body
-    #content
+    #page
       #header
         %h1
           %a{ :href => "/" }
             YUNO
         %p#login
           = logged_in? ? "#{link_to(current_user.login, profile_path)} (#{link_to(t('link.logout'), logout_path)})" : (check_url("users", controller.controller_name)) ? link_to(t('link.home'), "/") : link_to(t('link.join'), join_path)
-      #menubar
-        %ul#menu
-          %li
-            = link_to(t('link.home'), '/', :class => 'index')
-          - if is_admin?
-            %li
-              = link_to(t('link.projects'), projects_path, :class => 'projects')
-            %li
-              = link_to(t('link.clients'), clients_path, :class => 'clients')
-            %li
-              = link_to(t('link.users'), users_path, :class => 'users')
-        = yield :menubar
-      #sidebar
-        = yield :sidebar
-      #main
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash-#{name}"
-        = yield
+      #content
+        #menubar
+          %ul#menu
+            - if logged_in?
+              %li
+                = link_to(t('link.home'), '/', :class => 'index')
+            - if is_admin?
+              %li
+                = link_to(t('link.projects'), projects_path, :class => 'projects')
+              %li
+                = link_to(t('link.clients'), clients_path, :class => 'clients')
+              %li
+                = link_to(t('link.users'), users_path, :class => 'users')
+          = yield :menubar
+        #sidebar
+          = yield :sidebar
+        #main
+          - flash.each do |name, msg|
+            = content_tag :div, msg, :id => "flash-#{name}"
+          = yield
       #footer
         %small
           yuno 2009

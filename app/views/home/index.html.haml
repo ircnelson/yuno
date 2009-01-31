@@ -1,5 +1,4 @@
-- content_for(:sidebar) do
-  = image_tag("stats.png") if is_admin?
+//- content_for(:sidebar) do
 - if is_admin?
   #recent-tasks.main-box
     %h2
@@ -46,7 +45,7 @@
           %th{ :width => "150" }
             = t('header.author')
           %th
-            = t('header.comment')
+            = t('header.task')
       %tbody
         - @comments.each do |comment|
           - created_at = comment.created_at
@@ -60,7 +59,7 @@
             %td
               = link_to(comment.user.name, comment.user)
             %td
-              = link_to(comment.message, project_task_path(comment.task.project, comment.task, :anchor => "comment-#{comment.id}"))
+              = link_to(comment.task.name, project_task_path(comment.task.project, comment.task, :anchor => "comment-#{comment.id}"))
   #last-viewers.main-box
     %h2
       = t('header.box.logons')
@@ -87,6 +86,4 @@
               = link_to(connection.user.name, connection.user)
             %td
               = connection.address_ip
-- else
-  %p#flash-notice
-    = t('access_denied.admin')
+= distance_of_time_in_words_to_now(Time.now - 3.hours)

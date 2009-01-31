@@ -7,10 +7,9 @@
 %h4
   = t('projects.project')
   = link_to(@project.name, edit_project_path(@project))
-%h5
-  = t('clients.client')
-  = link_to(@project.client.client, @project.client)
-%hr
+  %p
+    = t('clients.client')
+    = link_to(@project.client.client, @project.client)
 #project-tasks.main-box
   %h2
     = t('projects.tasks')

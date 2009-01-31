@@ -30,4 +30,4 @@
           %td
             DD/MM/YYYY
           %td
-            = project.tasks.maximum('commented_at')
+            = project.tasks.maximum('commented_at').to_s_br

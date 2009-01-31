@@ -1,74 +1,90 @@
+!main_bg= #fff
+
+=no_margin_padding
+  :margin 0
+  :padding 0
+
 =default-fonts
-  :font-family tahoma, verdana, arial, helvetica, sans-serif
+  :font normal 12px/1.5em tahoma, verdana, arial, helvetica, sans-serif
+
+=header-and-footer
+  :background #DFDFFF
+
+=flash-style
+  :color #FFF
+  :font-size 120%
+  :font-weight bold
+  :with 90%
+  :padding 10px
+  :color #fff
 
 html, body
   +default-fonts
+  +no_margin_padding
   :color #333
   :background #fff
-  :margin 0
-  :padding 0
   :list-style none
-
+  :height 100%
 
 h1
   +default-fonts
+  +no_margin_padding
   :color #333
   :background #fff
-  :margin 0
-  :padding 0
-  :list-style none
   :font-size 45px
 
 
 h2
   +default-fonts
+  +no_margin_padding
   :color #333
-  :background #fff
-  :margin 0
-  :padding 0
-  :list-style none
+  :background #DFDFFF
   :font-size 18px
 
 
 h3
   +default-fonts
-  :color #333
-  :background #fff
-  :margin 0
-  :padding 0
-  :list-style none
+  :background #D2DFFF
+  :color #000
+  :border 1px solid #7A9FFF
+  :border-bottom 1px solid #7A9FFF
+  :margin 0 0 10px 0
+  :padding 5px
   :font-size 18px
-  :border-bottom 1px solid
 
 
 h4
   +default-fonts
-  :color #333
-  :background #fff
-  :margin 0
-  :padding 0
-  :list-style none
+  +no_margin_padding
+  :background #D2DFFF
+  :color #000
+  :border 1px solid #7A9FFF
+  :border-bottom 1px solid #7A9FFF
+  :padding 5px
+  :margin 0 0 10px 0
   :font-size 16px
 
 
 h5
   +default-fonts
+  +no_margin_padding
   :color #333
   :background #fff
-  :margin 0
-  :padding 0
-  :list-style none
   :font-size 12px
 
 
 h6
   +default-fonts
+  +no_margin_padding
   :color #333
   :background #fff
-  :margin 0
-  :padding 0
-  :list-style none
 
+
+h4
+  p
+    :margin 0
+    :padding 0
+    :font-size 80%
 
 form
   p
@@ -102,33 +118,40 @@ a
 
 
 #header
-  :color #fff
-  :background #BFD2FF
+  +header-and-footer
   :height 90px
+  :border-bottom 1px solid #A6BFFF
 
   h1 a
     :float left
+    :text-align center
     :width 200px
     :height 60px
+    :margin 8px
+    :padding 0 0 10px 0
 
   p#login
     :float right
     :margin 10px 15px 0 0
 
-=flash-style
-  :with 90%
+#flash-error
+  +flash-style
+  :border 2px solid #8B1300
+  :border-left-color #FF3919
+  :border-top-color #FF3919
+  :background #FF5A3F
 
 #flash-notice
   +flash-style
-  :color #008B00
-  :border 1px solid #008B00
-  :background #BFFFBF
-  :padding 4px 10px
-  :margin 0 0 10px 0
-
+  :border 2px solid #66CD00
+  :border-left-color #BFFF7F
+  :border-top-color #BFFF7F
+  :background #458B00
 
 #main
-  :margin 15px 360px 0 220px
+  :margin 15px 350px 0 180px
+  :padding 5px 10px
+  :background= !main_bg
 
   table
     :width 100%
@@ -146,7 +169,6 @@ a
   .main-box
     :border 1px solid #ddd
     :margin 0 0 20px 0
-    :color #999
 
     h2
       :border-bottom 1px solid #ccc
@@ -162,23 +184,37 @@ a
         a
           :text-decoration none
 
+fieldset
+  &.client_fieldset
+    :width 45%
+    :margin 0 10px
+    :float left
+    :border 1px solid #ddd
+  legend
+    :color #7A9FFF
+
+p.submit_area
+  :margin 10px
+  :float right
+  :clear both
 
 #sidebar
   :float right
   :margin 15px 0 10px 0
 
-
 #menubar
   :float left
-  :width 200px
-  :margin 15px 0 0 10px
+  :width 180px
+  :margin 15px 0 0 0
 
   ul
+    :margin 0
+    :padding 0 8px
     :list-style none
 
     &#menu li
       :text-transform uppercase
-      :margin 1px 0 0 0
+      :margin 0
 
       a
         :font-size 12px
@@ -213,6 +249,9 @@ a
           &:hover
             :border-right 5px solid #FFA5FF
 
+    &#submenu
+      :margin-top 35px
+
     &#submenu li
       :text-transform uppercase
       :margin 1px 0 0 0
@@ -222,6 +261,7 @@ a
         :text-decoration none
         :text-align right
         :display block
+        :margin 0
         :padding 4px
         :color #000
         :border 0px solid #cdcdcd
@@ -237,11 +277,6 @@ a
 
           &:hover
             :border-right 5px solid #00A5FF
-
-
-#submenu
-  :margin-top 40px
-
 
 #comments
   .comment
@@ -263,9 +298,22 @@ a
 
 
 #footer
-  :margin 15px 0 0 0
-  :text-align center
+  +default-fonts
+  +header-and-footer
+  :float left
+  :border-top 1px solid #A6BFFF
+  :position relative
+  :bottom 0px
+  :left 2px
+  :width 99%
+  :height 60px
+  :vertical-align middle
+  :padding 5px
+  :font-size 12px
+  :margin 15px 0
+  :text-align right
   :clear both
+  :overflow hidden
 
 
 tr

@@ -82,6 +82,11 @@ Rails::Initializer.run do |config|
 end
 
 require 'rubygems'
-require 'brazilian-rails'
 require 'will_paginate'
 ActiveRecord::Base.time_zone_aware_attributes = false
+
+class Date
+	def to_s_br
+		strftime("%d/%m/%Y")
+	end
+end
