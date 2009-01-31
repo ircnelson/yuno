@@ -16,18 +16,16 @@
           = t('header.task')
     %tbody
       - @tasks.each do |task|
-      - created_at = task.created_at
-      %tr{ :class => cycle('light', 'dark') }
-        %td
-          = created_at.strftime("%D")
-        %td
-          = created_at.strftime("%T")
-        %td
-          = link_to(task.project.name, project_path(task.project))
-        %td
-          = link_to(task.user.name, task.user)
-        %td
-          = link_to(task.name, [task.project, task])
-      - end
-    %tbody
+        - created_at = task.created_at
+        %tr{ :class => cycle('light', 'dark') }
+          %td
+            = created_at.strftime("%D")
+          %td
+            = created_at.strftime("%T")
+          %td
+            = link_to(task.project.name, project_path(task.project))
+          %td
+            = link_to(task.user.name, task.user)
+          %td
+            = link_to(task.name, [task.project, task])
 = will_paginate @tasks
