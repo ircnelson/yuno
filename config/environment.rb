@@ -24,13 +24,13 @@ Rails::Initializer.run do |config|
   # They can then be installed with "rake gems:install" on new installations.
   # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
   # config.gem "bj"
-  #	config.gem "hpricot"
+  # config.gem "hpricot"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  #	config.gem "brazilian-rails"
-	#	config.gem 'haml'
-	#	config.gem 'will_paginate', :lib => 'mislav-will_paginate', :source => 'http://gems.github.com'
-	#	config.gem "gruff"
+  # config.gem "brazilian-rails"
+  # config.gem 'haml'
+  # config.gem 'will_paginate', :lib => 'mislav-will_paginate', :source => 'http://gems.github.com'
+  # config.gem "gruff"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -82,12 +82,13 @@ Rails::Initializer.run do |config|
 end
 
 require 'rubygems'
+require 'sqlite3'
 require 'brhelper'
 require 'will_paginate'
 ActiveRecord::Base.time_zone_aware_attributes = false
 
 class Date
-	def to_s_br
-		strftime("%d/%m/%Y")
-	end
+  def to_s_br
+   strftime("%d/%m/%Y")
+  end
 end

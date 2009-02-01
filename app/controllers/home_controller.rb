@@ -9,7 +9,6 @@ class HomeController < ApplicationController
   	@tasks = Task.recent.all :limit => 5, :order => 'id desc'
   	@comments = Comment.recent.all :limit => 5, :order => 'id desc'
   	@connections = Connection.all :limit => 5, :order => 'id desc'
-  	stats
   end
 
   def stats
@@ -26,9 +25,10 @@ class HomeController < ApplicationController
     #g.font = File.expand_path('path/to/font.ttf', RAILS_ROOT)
  
     range = "created_at #{(6.months.ago.to_date..Date.today + 6.months).to_s(:db)}"
-    @stats_users = User.count(:all, :conditions => range, :group => "DATE_FORMAT(created_at, '%Y-%m')", :order =>"created_at ASC")
-    @stats_projects = Project.count(:all, :conditions => range, :group => "DATE_FORMAT(created_at, '%Y-%m')", :order =>"created_at ASC")
-    @stats_tasks = Task.count(:all, :conditions => range, :group => "DATE_FORMAT(created_at, '%Y-%m')", :order =>"created_at ASC")
+    #@stats_users = User.count(:all, :conditions => range, :group => "DATE_FORMAT(created_at, '%Y-%m')", :order =>"created_at ASC")
+    @stats_users = User.count(:all, :conditions => range, :group => "strftime('%Y-%m', created_at)", :order =>"created_at ASC")
+    @stats_projects = Project.count(:all, :conditions => range, :group => "strftime('%Y-%m', created_at)", :order =>"created_at ASC")
+    @stats_tasks = Task.count(:all, :conditions => range, :group => "strftime('%Y-%m', created_at)", :order =>"created_at ASC")
  
     # Take the union of all keys & convert into a hash {1 => "month", 2 => "month2"...}
     # - This will be the x-axis.. representing the date range
