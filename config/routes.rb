@@ -1,45 +1,41 @@
-module ActionController
-  module Translation
-    def translate(*args)
-      I18n.translate *args
-    end
-    alias :t :translate
-
-    def localize(*args)
-      I18n.localize *args
-    end
-    alias :l :localize
-  end
-end
-
 ActionController::Routing::Routes.draw do |map|
 
-	map.aliases :resources, :projects => 'projetos',
-							:comments => 'comentarios',
-							:tasks => 'tarefas',
-							:clients => 'clientes',
-							:users => 'usuarios'
+	def translate(*args)
+  	I18n.translate(*args).downcase
+  end
+  alias :t :translate
+  def localize(*args)
+      I18n.localize *args
+	end
+	alias :l :localize
 
-	map.aliases :actions,	:new => 'novo',
-													:edit => 'editar',
-													:suspend => 'banir',
-													:unsuspend => 'desbanir',
-													:close => 'fechar',
-													:open => 'abrir',
-													:logout => 'sair',
-													:join => 'entrar'
+	map.aliases :resources, :projects => t('routes.resources.projects'),
+							:comments => t('routes.resources.comments'),
+							:tasks => t('routes.resources.tasks'),
+							:clients => t('routes.resources.clients'),
+							:users => t('routes.resources.users')
+
+	map.aliases :actions,	:new => t('routes.actions.new'),
+  											:edit => t('routes.actions.edit'),
+												:suspend => t('routes.actions.suspend'),
+												:unsuspend => t('routes.actions.unsuspend'),
+												:close => t('routes.actions.close'),
+												:open => t('routes.actions.open'),
+												:logout => t('routes.actions.logout'),
+												:join => t('routes.actions.login'),
+												:profile => t('routes.actions.profile')
 	
 	map.resources :projects, :has_many => :tasks do |project|
 		project.resources :tasks,	 	:has_many => :comments,
 																:member => { :close => :get, :open => :get }
 	end
 	
-	map.stats '/stats', :controller => 'home', :action => 'stats'
-  map.logout '/sair', :controller => 'users', :action => 'logout'
-  map.join '/entrar', :controller => 'users', :action => 'join'
-  map.register '/registrar', :controller => 'users', :action => 'registrar'
-  map.profile '/perfil', :controller => 'users', :action => 'show'
-	map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+	map.stats "#{t('routes.actions.stats')}", :controller => 'home', :action => 'stats'
+  map.logout "#{t('routes.actions.logout')}", :controller => 'users', :action => 'logout'
+  map.join "#{t('routes.actions.login')}", :controller => 'users', :action => 'join'
+  map.register "#{t('routes.actions.register')}", :controller => 'users', :action => 'new'
+  map.profile "#{t('routes.actions.profile')}", :controller => 'users', :action => 'show'
+	map.activate "#{t('routes.actions.activate')}/:activation_code", :controller => 'users', :action => 'activate', :activation_code => nil
 
   map.resources :clients
   map.resources :comments
@@ -49,18 +45,9 @@ ActionController::Routing::Routes.draw do |map|
 																				:unsuspend => :get,
 																				:purge     => :delete }
 
-  # The priority is based upon order of creation: first created -> highest priority.
-
-  # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # Keep in mind you can assign values other than :controller and :action
-
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
@@ -82,12 +69,6 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   map.root :controller => "home"
-
-  # See how all your routes lay out with "rake routes"
-
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via GET requests. You should
-  # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

@@ -107,6 +107,26 @@ br:
     signup: 'Obrigado por se registrar! Foi enviado um código para ativação do cadastro.'
     login: 'Autenticado com sucesso.'
     logout: 'Sessão finalizada.'
+  routes:
+    resources:
+      projects: 'projetos'
+      tasks: 'tarefas'
+      clients: 'clientes'
+      comments: 'comentarios'
+      users: 'usuarios'
+    actions:
+      new: 'novo'
+      edit: 'editar'
+      suspend: 'banir'
+      unsuspend: 'desbanir'
+      close: 'fechar'
+      open: 'abrir'
+      logout: 'sair'
+      login: 'entrar'
+      profile: 'perfil'
+      register: 'registrar'
+      activate: 'ativar'
+      stats: 'estatisticas'
   labels:
     name: 'Nome:'
     login: 'Login:'
@@ -129,7 +149,6 @@ br:
     client: 'Cliente'
     comment: 'Comentário'
     ip_address: 'Endereço IP'
-    comment: 'Comentário'
     name: 'Nome'
     coordinator: 'Coordenador'
     date_begin: 'Data Inicial'
@@ -181,12 +200,8 @@ br:
     clients: 'Clientes:'
     client: 'Cliente:'
   comments:
-    comment: 'Comentário'
-    comments: 'Comentários'
-  messages:
-    clients:
-      blank: 'Não existe nenhum Cliente.'
-    comments:
-      closed: 'Fechado para comentários'
+    comments: 'Comentários:'
+    comment: 'Comentário:'
+    closed: 'Fechado para comentários.'
   access_denied:
     admin: 'Você não tem permissão.'

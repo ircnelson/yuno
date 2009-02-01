@@ -10,8 +10,7 @@ class UsersController < ApplicationController
 	    format.html
 		end
   end
-  
-  # register.html.erb
+
   def new
     @user = User.new
   end
