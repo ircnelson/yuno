@@ -6,13 +6,13 @@
     = f.text_field :name
   - if @clients.blank?
     %p
-    = t('messages.clients.blank')
-    = link_to(t('clients.new'), new_client_path)
+      = t('messages.clients.blank')
+      = link_to(t('clients.new'), new_client_path)
   - else
     %p
-    = f.label :client_id, t('labels.client')
-  %br
-  = f.select :client_id, @clients.collect { |c| [c.client, c.id] }, :include_blank => true
+      = f.label :client_id, t('labels.client')
+      %br
+      = f.select :client_id, @clients.collect { |c| [c.client, c.id] }, :include_blank => true
   %p
     = f.hidden_field :user_id, :value => current_user.id
     = f.submit btn_submit

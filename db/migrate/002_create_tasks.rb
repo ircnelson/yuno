@@ -2,7 +2,7 @@ class CreateTasks < ActiveRecord::Migration
   def self.up
     create_table :tasks do |t|
       t.string :name
-      t.string :state, :default => "open"
+      t.string :state
       t.text :message
       t.integer :project_id
       t.timestamps

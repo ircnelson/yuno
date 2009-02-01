@@ -9,17 +9,34 @@ class Task < ActiveRecord::Base
 
 	named_scope :recent, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 2.days.ago)] } }
 
-	def open!
-		 write_attribute :state, "open"
-		 save()
-	end
-	
-	def close!
-		write_attribute :state, "closed"
-		save()
-	end
-	
+	acts_as_state_machine :initial => :pending
+	state :open, :enter => :set_real_date_start
+	state :closed, :enter => :set_real_date_end
+
+	event :pending do
+    transitions :from => :pending, :to => :open, :guard => Proc.new {|t| !(t.comments.blank?) }
+  end
+
+  event :open do
+    transitions :from => [:pending, :closed], :to => :open
+  end
+  
+  event :closed do
+    transitions :from => :open, :to => :closed
+  end
+
+	protected
+		def set_real_date_start
+		  @task_open = true
+		  self.real_date_start = Date.today.to_s(:db)
+		end
+
+		def set_real_date_end
+		  @task_open = nil
+		  self.real_date_end = Date.today.to_s(:db)
+		end
+
 	def open?
-		self.state.downcase === "open" ? true : false
+		@task_open ? true : false
 	end
 end

@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
 	#before_filter :update_connections
 	
 	private
+		def successfull(text)
+			t('flash.successfull.created').gsub("{text}", text)
+		end
+
 		def set_language
 			I18n.locale = "br"
 		end

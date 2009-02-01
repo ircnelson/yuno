@@ -107,6 +107,8 @@ br:
     signup: 'Obrigado por se registrar! Foi enviado para o seu email um código para ativação do cadastro.'
     login: 'Autenticado com sucesso.'
     logout: 'Sessão finalizada.'
+    successfull:
+      created: '{model} criado com sucesso!'
   routes:
     resources:
       projects: 'projetos'
@@ -205,5 +207,8 @@ br:
     comments: 'Comentários:'
     comment: 'Comentário:'
     closed: 'Fechado para comentários.'
-  access_denied:
-    admin: 'Você não tem permissão.'
+  messages:
+    access_denied:
+      admin: 'Você não tem permissão.'
+    clients:
+      blank: 'Não há nenhum cliente cadastrado.<br /> Você precisa criar um cliente para criar um projeto.'

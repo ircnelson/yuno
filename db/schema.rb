@@ -47,13 +47,17 @@ ActiveRecord::Schema.define(:version => 8) do
 
   create_table "tasks", :force => true do |t|
     t.string   "name"
-    t.string   "state",        :default => "open"
+    t.string   "state"
     t.text     "message"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.datetime "commented_at"
+    t.date     "date_start"
+    t.date     "real_date_start"
+    t.date     "date_end"
+    t.date     "real_date_end"
   end
 
   create_table "users", :force => true do |t|
