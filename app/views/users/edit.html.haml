@@ -7,8 +7,17 @@
     = u.label :email
     %br
     = u.text_field :email
+  %p
+    = u.label :password, t('labels.password')
+    %br/
+    = u.password_field :password
+  %p
+    = u.label :password_confirmation, t('labels.password_confirmation')
+    %br/
+    = u.password_field :password_confirmation
   - if is_admin?
-    = u.select :level, [["Administrador", "admin"], ["Colaborador", "colaborador"], ["Normal", "normal"]]
+    %p
+      = u.select :level, [["Administrador", "admin"], ["Colaborador", "collaborator"], ["Normal", "normal"]]
   %p
     = u.submit t('link.save')
     = link_to t('link.cancel'), (@user.id == current_user.id) ? profile_path : users_path
