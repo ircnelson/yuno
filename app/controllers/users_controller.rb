@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     success = @user && @user.valid?
     if success && @user.errors.empty?
       redirect_back_or_default('/')
-      flash[:notice] = t('flash.signup')
+      flash[:notice] = t('flash.signup').gsub('\[email\]', @user.email)
     else
       render :action => 'new'
     end

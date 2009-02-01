@@ -104,7 +104,7 @@ br:
         one:   "superior 1 ano"
         other: "superior {{count}} anos"
   flash:
-    signup: 'Obrigado por se registrar! Foi enviado um código para ativação do cadastro.'
+    signup: 'Obrigado por se registrar! Foi enviado para o seu email ([email]) um código para ativação do cadastro.'
     login: 'Autenticado com sucesso.'
     logout: 'Sessão finalizada.'
   routes:
@@ -130,6 +130,8 @@ br:
   labels:
     name: 'Nome:'
     login: 'Login:'
+    password: 'Senha:'
+    password_confirmation: 'Digite novamente sua senha:'
     message: 'Mensagem:'
     email: 'E-mail:'
     phone: 'Telefone:'
@@ -181,7 +183,7 @@ br:
     suspend: 'Banir'
     unsuspend: 'Desbanir'
   users:
-    new: 'Novo Cliente'
+    new: 'Novo Usuário'
     users: 'Usuários:'
     user: 'Usuário:'
   projects:

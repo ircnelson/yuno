@@ -1,3 +1,7 @@
+- content_for(:menubar) do
+  %ul#submenu
+    %li
+      = link_to(t('users.new'), new_user_path, :class => 'users')
 %h3
   Lista de usuários
 %table

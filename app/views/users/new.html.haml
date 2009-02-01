@@ -1,0 +1,29 @@
+%h3
+  = t('users.new')
+
+- form_for(@user) do |u|
+  - field_set_tag nil, :class => 'field_box' do
+    %p
+      = u.label :name, t('labels.name')
+      %br/
+      = u.text_field :name
+    %p
+      = u.label :email, t('labels.email')
+      %br/
+      = u.text_field :email
+  - field_set_tag nil, :class => 'field_box' do
+    %p
+      = u.label :login, t('labels.login')
+      %br/
+      = u.text_field :login
+    %p
+      = u.label :password, t('labels.password')
+      %br/
+      = u.password_field :password
+    %p
+      = u.label :password_confirmation, t('labels.password_confirmation')
+      %br/
+      = u.password_field :password_confirmation
+  %p.submit_area
+    = u.submit t('link.add')
+    = link_to(t('link.cancel'), (@user.new_record? ? users_path : user_path(@user)), :class => 'btn-cancel')

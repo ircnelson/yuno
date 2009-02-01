@@ -2,7 +2,7 @@
   = t('clients.new')
 - form_for(@client) do |f|
   = f.error_messages
-  - field_set_tag t('header.client.field1'), :class => 'client_fieldset' do
+  - field_set_tag t('header.client.field1'), :class => 'field_box' do
     %p
       = f.label :client, t('labels.client')
       %br
@@ -15,7 +15,7 @@
       = f.label :email, t('labels.email')
       %br
       = f.text_field :email
-  - field_set_tag t('header.client.field2'), :class => 'client_fieldset' do
+  - field_set_tag t('header.client.field2'), :class => 'field_box' do
     %p
       = f.label :address_state, t('labels.address_state')
       %br
