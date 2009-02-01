@@ -11,4 +11,4 @@
     = u.select :level, [["Administrador", "admin"], ["Colaborador", "colaborador"], ["Normal", "normal"]]
   %p
     = u.submit t('link.save')
-    = link_to t('link.cancel'), profile_path
+    = link_to t('link.cancel'), (@user.id == current_user.id) ? profile_path : users_path

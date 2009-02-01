@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   # Protect these actions behind an admin login
   before_filter :admin_required, :only => [:index, :suspend, :unsuspend, :destroy, :purge, :forceactivate]
-  before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
+  before_filter :find_user, :only => [:edit, :suspend, :unsuspend, :destroy, :purge]
 
   def index
 		@users = User.paginate(:page => params[:page], :order => 'created_at desc')
@@ -79,7 +79,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-  	@user = User.find(current_user.id)
   end
   
   def update
