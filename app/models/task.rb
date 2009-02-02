@@ -10,19 +10,20 @@ class Task < ActiveRecord::Base
 	named_scope :recent, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 2.days.ago)] } }
 
 	acts_as_state_machine :initial => :pending
-	state :open, :enter => :set_real_date_start
+	state :pending
+	state :opened, :enter => :set_real_date_start
 	state :closed, :enter => :set_real_date_end
 
 	event :pending do
-    transitions :from => :pending, :to => :open, :guard => Proc.new {|t| !(t.comments.blank?) }
+    transitions :from => [:closed, :open], :to => :pending, :guard => Proc.new {|task| (task.comments.blank?) }
   end
 
   event :open do
-    transitions :from => [:pending, :closed], :to => :open
+    transitions :from => [:pending, :closed], :to => :opened, :guard => Proc.new {|task| !(task.comments.blank?) }
   end
   
-  event :closed do
-    transitions :from => :open, :to => :closed
+  event :close do
+    transitions :from => :opened, :to => :closed
   end
 
 	protected

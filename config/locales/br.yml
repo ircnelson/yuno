@@ -154,6 +154,8 @@ br:
     user: 'Usuário'
     client: 'Cliente'
     comment: 'Comentário'
+    comments: 'Comentários'
+    status: 'Situação'
     ip_address: 'Endereço IP'
     name: 'Nome'
     coordinator: 'Coordenador'
@@ -178,6 +180,7 @@ br:
     close: 'Fechar'
     open: 'Abrir'
     cancel: 'Cancelar'
+    remove: 'Remover'
     back: 'Voltar'
     join: 'Entrar'
     exit: 'Sair'
@@ -201,6 +204,10 @@ br:
     edit: 'Editar Tarefa'
     tasks: 'Tarefas:'
     task: 'Tarefa:'
+    state:
+      pending: 'aguardando'
+      opened: 'aberto'
+      closed: 'fechado'
   clients:
     new: 'Novo Cliente'
     clients: 'Clientes:'
@@ -210,10 +217,12 @@ br:
     comment: 'Comentário:'
     closed: 'Fechado para comentários.'
   messages:
+    confirm:
+      are_you_sure: 'Você tem certeza?'
     access_denied:
       admin: 'Você não tem permissão.'
     clients:
-      blank: 'Não há nenhum cliente cadastrado.<br /> Você precisa criar um cliente para criar um projeto.'
+      blank: 'Não há nenhum cliente cadastrado.<br /> Você precisa cadastrar o cliente para iniciar um novo projeto.'
     authentication:
       bad_name: 'Por favor não utilize caracteres especiais (&gt;&lt;&amp;).'
       bad_login: 'Por favor use somente letras, números e/ou .-_@'

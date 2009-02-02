@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
     @comment = @task.comments.build(params[:comment])
     respond_to do |format|
       if @comment.save
+      	@task.open!
         flash[:notice] = 'Comment was successfully created.'
         format.html { redirect_to(project_task_path(@task.project, @task)) }
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }

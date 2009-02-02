@@ -161,7 +161,7 @@ a {
         #main .main-box ul li a {
           text-decoration: none; }
 
-fieldset.client_fieldset {
+fieldset.field_box {
   width: 45%;
   margin: 0 10px;
   float: left;

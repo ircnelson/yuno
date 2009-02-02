@@ -7,11 +7,12 @@
 = simple_format(@task.message)
 - content_for(:menubar) do
   - content_tag(:ul, :id => "submenu") do
-    = content_tag(:li, link_to('Editar', edit_project_task_path(@project, @task), :class => 'projects'))
-    = content_tag(:li, "#{link_to('Remover', project_task_path(@project, @task), :class => 'projects', :confirm => t('messages.are_you_sure'), :method => :delete)}") if !@task.open?
-    = content_tag(:li, @task.open? ? link_to(t('link.close'), close_project_task_path(@project, @task), :class => 'projects') : link_to(t('link.open'), open_project_task_path(@project, @task), :class => 'projects'))
+    = content_tag(:li, link_to(t('link.edit'), edit_project_task_path(@project, @task), :class => 'projects'))
+    = content_tag(:li, "#{link_to(t('link.remove'), project_task_path(@project, @task), :class => 'projects', :confirm => t('messages.confirm.are_you_sure'), :method => :delete)}") if @task.closed?
+    = content_tag(:li, link_to(t('link.close'), close_project_task_path(@project, @task), :class => 'projects')) if @task.opened?
+    = content_tag(:li, link_to(t('link.open'), open_project_task_path(@project, @task), :class => 'projects')) if !@task.opened?
 #comments
-  - if @task.open?
+  - unless @task.closed?
     %h5
       = t('comments.comments')
     = render :partial => "comments/form", :locals => { :btn_submit => t('link.add') }
@@ -20,7 +21,7 @@
       - div_for(comment, :class => cycle('light', 'dark')) do
         %h6
           %span.date
-            = comment.created_at.to_s_br
+            = comment.created_at.to_s
           %span.user-name
             = comment.user.name
         = simple_format(comment.message)

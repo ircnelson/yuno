@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 8) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "clients", :force => true do |t|
     t.string   "client"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 8) do
 
   create_table "tasks", :force => true do |t|
     t.string   "name"
-    t.string   "state"
+    t.string   "state",           :default => "pending"
     t.text     "message"
     t.integer  "project_id"
     t.datetime "created_at"
