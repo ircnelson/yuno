@@ -130,6 +130,23 @@ a
     :background #ddd
     :border 1px solid #ccc
 
+.pagination
+  :background #F1F1F1
+  :border 1px solid #E5E5E5
+  :text-align center
+  :padding 1em
+  a, span
+    :padding .2em .3em
+  span.disabled
+    :color #AAA
+  span.current
+    :font-weight bold
+    :background transparent url(/images/circle.gif) no-repeat 50% 50%
+  a
+    :text-decoration none
+    :color black
+    &:hover, &:focus
+      :text-decoration underline
 
 #header
   +header-and-footer

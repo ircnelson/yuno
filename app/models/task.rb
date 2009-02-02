@@ -9,6 +9,7 @@ class Task < ActiveRecord::Base
 	validates_presence_of :name
 
 	named_scope :recent, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 2.days.ago)] } }
+	named_scope :inactives, lambda { |*args| { :conditions => ["real_date_start IS NULL OR commented_at < ?", (args.first || 2.days.ago)] } }
 
 	acts_as_state_machine :initial => :pending
 	state :pending

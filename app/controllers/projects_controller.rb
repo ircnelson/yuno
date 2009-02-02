@@ -6,17 +6,10 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.find(:all)
-    #@users = User.find(:all, :conditions => ["nome like ?","#{params[:coordenador_id]}%"])
-    respond_to do |format|
-      format.html
-    end
   end
 
   def show
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @project }
-    end
+  	@tasks = @project.tasks.paginate(:page => params[:page], :order => 'id desc')
   end
 
   def new

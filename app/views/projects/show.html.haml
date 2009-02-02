@@ -36,8 +36,8 @@
         %th{ :width => "40" }
           = t('header.comments')
     %tbody
-      - @project.tasks.reverse.each do |task|
-        %tr
+      - @tasks.each do |task|
+        %tr{ :class => cycle('light', 'dark') }
           %td
             = image_tag(state(task.state), :alt => t("legend.tasks.#{task.state}"))
           %td
@@ -48,3 +48,5 @@
             = task.date_end
           %td{ :align => "center" }
             = task.comments.count
+= page_entries_info @tasks
+= will_paginate @tasks
