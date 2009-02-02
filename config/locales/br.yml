@@ -226,6 +226,8 @@ br:
     comment: 'Comentário:'
     closed: 'Fechado para comentários.'
   messages:
+    search:
+      not_found: 'Nenhum resultado.'
     confirm:
       are_you_sure: 'Você tem certeza?'
     access_denied:

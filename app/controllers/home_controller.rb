@@ -10,6 +10,13 @@ class HomeController < ApplicationController
   	@comments = Comment.recent.all :limit => 5, :order => 'id desc'
   	@connections = Connection.all :limit => 5, :order => 'id desc'
   end
+  
+  def search
+ 	 	q = params[:q]
+  	@results = Project.find(:all, :include => 'tasks', :conditions => ["name like ?","%#{q}%"])
+  	@results = t('messages.search.not_found') if @results.blank?
+  	render :layout => false
+  end
 
   def stats
 
