@@ -23,7 +23,7 @@ class TasksController < ApplicationController
     @task = @project.tasks.build(params[:task])
     respond_to do |format|
       if @task.save
-        flash[:notice] = 'Task was successfully created.'
+        flash[:notice] = successfull
         format.html { redirect_to(@project, @task) }
       else
         format.html { render :action => "new" }
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        flash[:notice] = 'Task was successfully updated.'
+        flash[:notice] = successfull(:updated)
         format.html { redirect_to(@project, @task) }
 
       else

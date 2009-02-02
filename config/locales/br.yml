@@ -117,7 +117,9 @@ br:
       code_blank: 'O código de autenticação não confere com o enviado para o seu e-mail.'
       code_missing: 'Nenhum usuário foi encontrado com este código de ativação ou já está ativado. Tente logar.'
     successfull:
-      created: '{text} criado com sucesso!'
+      created: 'Criado com sucesso.'
+      updated: 'Atualizado com sucesso.'
+      comment: 'Comentário enviado com sucesso.'
   routes:
     resources:
       projects: 'projetos'

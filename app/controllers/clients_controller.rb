@@ -1,5 +1,7 @@
 class ClientsController < ApplicationController
 
+	before_filter :find_client, :except => [:index, :new, :create]
+
   def index
     @clients = Client.find(:all)
     respond_to do |format|
@@ -9,7 +11,6 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @client = Client.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @client }
@@ -25,14 +26,13 @@ class ClientsController < ApplicationController
   end
 
   def edit
-    @client = Client.find(params[:id])
   end
 
   def create
     @client = Client.new(params[:client])
     respond_to do |format|
       if @client.save
-        flash[:notice] = 'Client was successfully created.'
+        flash[:notice] = successfull
         format.html { redirect_to(@client) }
         format.xml  { render :xml => @client, :status => :created, :location => @client }
       else
@@ -43,10 +43,9 @@ class ClientsController < ApplicationController
   end
 
   def update
-    @client = Client.find(params[:id])
     respond_to do |format|
       if @client.update_attributes(params[:client])
-        flash[:notice] = 'Client was successfully updated.'
+        flash[:notice] = successfull(:updated)
         format.html { redirect_to(@client) }
         format.xml  { head :ok }
       else
@@ -57,11 +56,15 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    @client = Client.find(params[:id])
     @client.destroy
     respond_to do |format|
       format.html { redirect_to(clients_url) }
       format.xml  { head :ok }
     end
   end
+  
+  protected
+  	def find_client
+	  	@client = Client.find(params[:id])
+  	end
 end

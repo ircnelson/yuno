@@ -6,9 +6,6 @@ class UsersController < ApplicationController
 
   def index
 		@users = User.paginate(:page => params[:page], :order => 'created_at desc')
-		respond_to do |format|
-	    format.html
-		end
   end
 
   def new
@@ -84,7 +81,7 @@ class UsersController < ApplicationController
   
   def update
   	if @user.update_attributes(params[:user])
-  		flash[:notice] = "Sua conta foi atualizada com sucesso"
+  		flash[:notice] = successfull(:updated)
   		redirect_back_or_default perfil_path
   	else
   		render :action => "edit"

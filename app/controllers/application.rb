@@ -18,8 +18,9 @@ class ApplicationController < ActionController::Base
 	#before_filter :update_connections
 	
 	private
-		def successfull(text)
-			t('flash.successfull.created').gsub("{text}", text)
+		def successfull(type = nil)
+			type ||= :created
+			t("flash.successfull.#{type.to_s}")
 		end
 
 		def set_language
