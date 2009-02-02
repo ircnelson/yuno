@@ -24,14 +24,14 @@
   %table{ :width => "100%" }
     %thead
       %tr
-        %th{ :width => "10" }
-        %th{ :width => "350" }
+        %th
+        %th
           = t('header.name')
-        %th{ :width => "30" }
+        %th
           = t('header.date_start')
-        %th{ :width => "35" }
+        %th
           = t('header.date_end')
-        %th{ :width => "20" }
+        %th
           = t('header.comments')
     %tbody
       - @tasks.each do |task|
