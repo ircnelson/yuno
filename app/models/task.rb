@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
 	has_many :comments, :dependent => :destroy, :order => 'id desc'
 	belongs_to :project
 	belongs_to :user
+	validates_uniqueness_of :name
 	validates_presence_of :name
 
 	named_scope :recent, lambda { |*args| { :conditions => ["created_at > ?", (args.first || 2.days.ago)] } }
@@ -15,7 +16,7 @@ class Task < ActiveRecord::Base
 	state :closed, :enter => :set_real_date_end
 
 	event :pending do
-    transitions :from => [:closed, :open], :to => :pending, :guard => Proc.new {|task| (task.comments.blank?) }
+    transitions :from => [:closed, :open], :to => :pending
   end
 
   event :open do
@@ -23,7 +24,7 @@ class Task < ActiveRecord::Base
   end
   
   event :close do
-    transitions :from => :opened, :to => :closed
+    transitions :from => [:pending, :opened], :to => :closed
   end
 
 	protected

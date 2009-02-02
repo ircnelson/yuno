@@ -27,4 +27,8 @@ module ApplicationHelper
 	def anchor(anchor)
 		"<a name=\"#{anchor}\"></a>"
 	end
+	
+	def state(s)
+		"state_#{s}"
+	end
 end

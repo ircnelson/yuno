@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   
   def search
  	 	q = params[:q]
-  	@results = Project.find(:all, :include => 'tasks', :conditions => ["name like ?","%#{q}%"])
+  	@results = Task.find(:all, :include => 'comments', :conditions => ["name like ?","%#{q}%"])
   	@results = t('messages.search.not_found') if @results.blank?
   	render :layout => false
   end

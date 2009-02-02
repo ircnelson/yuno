@@ -9,8 +9,8 @@
   - content_tag(:ul, :id => "submenu") do
     = content_tag(:li, link_to(t('link.edit'), edit_project_task_path(@project, @task), :class => 'projects'))
     = content_tag(:li, "#{link_to(t('link.remove'), project_task_path(@project, @task), :class => 'projects', :confirm => t('messages.confirm.are_you_sure'), :method => :delete)}") if @task.closed?
-    = content_tag(:li, link_to(t('link.close'), close_project_task_path(@project, @task), :class => 'projects')) if @task.opened?
-    = content_tag(:li, link_to(t('link.open'), open_project_task_path(@project, @task), :class => 'projects')) if !@task.opened?
+    = content_tag(:li, link_to(t('link.close'), close_project_task_path(@project, @task), :class => 'projects')) if (@task.opened? || @task.pending?)
+    = content_tag(:li, link_to(t('link.open'), open_project_task_path(@project, @task), :class => 'projects')) if (@task.closed?)
 #comments
   - unless @task.closed?
     %h5
