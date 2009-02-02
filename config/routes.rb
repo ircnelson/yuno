@@ -23,7 +23,8 @@ ActionController::Routing::Routes.draw do |map|
 												:open => t('routes.actions.open'),
 												:logout => t('routes.actions.logout'),
 												:join => t('routes.actions.login'),
-												:profile => t('routes.actions.profile')
+												:profile => t('routes.actions.profile'),
+												:activate => t('routes.actions.activate')
 	
 	map.resources :projects, :has_many => :tasks do |project|
 		project.resources :tasks,	 	:has_many => :comments,

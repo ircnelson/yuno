@@ -107,8 +107,17 @@ br:
     signup: 'Obrigado por se registrar! Foi enviado para o seu email um código para ativação do cadastro.'
     login: 'Autenticado com sucesso.'
     logout: 'Sessão finalizada.'
+    authentication:
+      bad_name: 'Por favor não utilize caracteres especiais (&gt;&lt;&amp;).'
+      bad_login: 'Por favor use somente letras, números e/ou .-_@'
+      blank_login: 'Digite seu nome de usuário.'
+      blank_password: 'Digite a sua senha.'
+      not_activated: 'Este nome de usuário ainda não está ativado.'
+      completed: 'Seu registro foi ativado com sucesso!'
+      code_blank: 'O código de autenticação não confere com o enviado para o seu e-mail.'
+      code_missing: 'Nenhum usuário foi encontrado com este código de ativação ou já está ativado. Tente logar.'
     successfull:
-      created: '{model} criado com sucesso!'
+      created: '{text} criado com sucesso!'
   routes:
     resources:
       projects: 'projetos'
@@ -223,8 +232,3 @@ br:
       admin: 'Você não tem permissão.'
     clients:
       blank: 'Não há nenhum cliente cadastrado.<br /> Você precisa cadastrar o cliente para iniciar um novo projeto.'
-    authentication:
-      bad_name: 'Por favor não utilize caracteres especiais (&gt;&lt;&amp;).'
-      bad_login: 'Por favor use somente letras, números e/ou .-_@'
-      blank_login: 'Digite seu nome de usuário.'
-      blank_password: 'Digite a sua senha.'

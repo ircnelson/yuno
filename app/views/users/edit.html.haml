@@ -1,20 +1,12 @@
 - form_for(@user) do |u|
   %p
-    = u.label :name
+    = u.label :name, t('labels.name')
     %br
     = u.text_field :name
   %p
-    = u.label :email
+    = u.label :email, t('labels.email')
     %br
     = u.text_field :email
-  %p
-    = u.label :password, t('labels.password')
-    %br/
-    = u.password_field :password
-  %p
-    = u.label :password_confirmation, t('labels.password_confirmation')
-    %br/
-    = u.password_field :password_confirmation
   - if is_admin?
     %p
       = u.select :level, [["Administrador", "admin"], ["Colaborador", "collaborator"], ["Normal", "normal"]]
