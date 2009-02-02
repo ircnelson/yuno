@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
 	# Criar uma nova conta
   def create
-    logout_keeping_session!
+    #logout_keeping_session!
     @user = User.new(params[:user])
     @user.register! if @user && @user.valid?
     success = @user && @user.valid?
