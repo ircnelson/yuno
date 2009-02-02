@@ -72,6 +72,10 @@ form input, form textarea {
   color: #333;
   border: 1px solid #ccc;
   background: #ddd; }
+form span.date_start select {
+  color: green; }
+form span.date_end select {
+  color: red; }
 
 a {
   color: #00638B;
@@ -99,38 +103,38 @@ a {
     width: 200px;
     height: 60px;
     margin: 8px;
-    padding: 0 0 10px 0; }
+    padding: 0 0 10px 0;
+    font-weight: bold; }
   #header p#login {
     float: right;
     margin: 10px 15px 0 0; }
 
 #flash-error {
-  color: #FFF;
   font-size: 120%;
   font-weight: bold;
   with: 90%;
   padding: 10px;
   margin: 0 0 10px 0;
-  color: #fff;
-  border: 2px solid #8B1300;
-  border-left-color: #FF3919;
-  border-top-color: #FF3919;
-  background: #FF5A3F; }
+  border: 2px solid #FF7A9F;
+  border-left-color: #FFD2BF;
+  border-top-color: #FFD2BF;
+  background: #FFA67F;
+  color: #8B2A00; }
 
 #flash-notice {
-  color: #FFF;
   font-size: 120%;
   font-weight: bold;
   with: 90%;
   padding: 10px;
   margin: 0 0 10px 0;
-  color: #fff;
-  border: 2px solid #66CD00;
-  border-left-color: #BFFF7F;
-  border-top-color: #BFFF7F;
-  background: #458B00; }
+  border: 2px solid #BBFF9F;
+  border-left-color: #E8FFBF;
+  border-top-color: #E8FFBF;
+  background: #D2FF7F;
+  color: #5A8B00; }
 
 #main {
+  min-height: 430px;
   margin: 15px 350px 0 180px;
   padding: 5px 10px;
   background: #ffffff; }
@@ -157,7 +161,7 @@ a {
         #main .main-box ul li a {
           text-decoration: none; }
 
-fieldset.field_box {
+fieldset.client_fieldset {
   width: 45%;
   margin: 0 10px;
   float: left;

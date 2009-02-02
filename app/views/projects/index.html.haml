@@ -12,10 +12,6 @@
           = t('header.name')
         %th{ :width => "80" }
           = t('header.coordinator')
-        %th{ :width => "70" }
-          = t('header.date_begin')
-        %th{ :width => "70" }
-          = t('header.date_end')
         %th{ :width => "100" }
           = t('header.last_task')
     %tbody
@@ -25,9 +21,5 @@
             = link_to(project.name, project)
           %td
             = project.client.coordinator
-          %td
-            DD/MM/YYYY
-          %td
-            DD/MM/YYYY
           %td
             = project.tasks.maximum('commented_at').to_s

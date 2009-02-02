@@ -19,14 +19,22 @@
   %table{ :width => "100%" }
     %thead
       %tr
-        %th{ :width => "85%" }
+        %th{ :width => "100" }
           = t('header.name')
-        %th
+        %th{ :width => "170" }
+          = t('header.date_start')
+        %th{ :width => "170" }
+          = t('header.date_end')
+        %th{ :width => "50" }
           = t('comments.comments')
     %tbody
       - @project.tasks.each do |task|
         %tr{ :class => cycle('light', 'dark') }
           %td
             = link_to(task.name, project_task_path(@project, task))
+          %td
+            = task.date_start
+          %td
+            = task.date_end
           %td{ :align => "center" }
             = task.comments.count

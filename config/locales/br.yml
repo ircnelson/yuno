@@ -142,6 +142,8 @@ br:
     address_state: 'Estado:'
     client: 'Cliente:'
     coordinator: 'Coordenador:'
+    date_start: 'Data Inicial:'
+    date_end: 'Data Final:'
   header:
     date: 'Data'
     time: 'Hora'
@@ -155,7 +157,7 @@ br:
     ip_address: 'Endereço IP'
     name: 'Nome'
     coordinator: 'Coordenador'
-    date_begin: 'Data Inicial'
+    date_start: 'Data Inicial'
     date_end: 'Data Final'
     last_task: 'Última Atualização'
     box:
@@ -212,3 +214,8 @@ br:
       admin: 'Você não tem permissão.'
     clients:
       blank: 'Não há nenhum cliente cadastrado.<br /> Você precisa criar um cliente para criar um projeto.'
+    authentication:
+      bad_name: 'Por favor não utilize caracteres especiais (&gt;&lt;&amp;).'
+      bad_login: 'Por favor use somente letras, números e/ou .-_@'
+      blank_login: 'Digite seu nome de usuário.'
+      blank_password: 'Digite a sua senha.'

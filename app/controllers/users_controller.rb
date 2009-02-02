@@ -55,9 +55,10 @@ class UsersController < ApplicationController
       last_connection.save rescue nil
     else
       note_failed_signin
-      @login       = params[:login]
+      @login = params[:login]
       @remember_me = params[:remember_me]
-      redirect_to join_path
+      render :action => "join"
+      #redirect_to join_path
     end
   end
 
@@ -98,7 +99,7 @@ class UsersController < ApplicationController
     when (!params[:activation_code].blank?) && user && !user.active?
       user.activate!
       flash[:notice] = "Signup complete! Please sign in to continue."
-      redirect_to '/login'
+      redirect_to join_path
     when params[:activation_code].blank?
       flash[:error] = "The activation code was missing.  Please follow the URL from your email."
       redirect_back_or_default('/')
@@ -143,7 +144,13 @@ class UsersController < ApplicationController
 		end
 		# Track failed login attempts
 		def note_failed_signin
-		  flash[:error] = "Couldn't log you in as '#{params[:login]}'"
+			if params[:login].blank?
+			  #user = User.find_by_login(params[:login])
+			  flashmsg = t('messages.authentication.blank_login')
+			elsif params[:login] && params[:password].blank?
+			  flashmsg = t('messages.authentication.blank_password')
+			end
+		  flash[:error] = flashmsg
 		  logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
 		end
 end

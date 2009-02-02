@@ -1,12 +1,18 @@
-%p#related
-  = t('projects.project')
-  = link_to(@project.name, @project)
 - form_for([@project, @task]) do |f|
   = f.error_messages
+  %p#related
+    = t('projects.project')
+    = link_to(@project.name, @project)
   %p
     = f.label :name, t('labels.name')
-    %br
     = f.text_field :name
+  %p
+    %span.date_start
+      = f.date_select :date_start
+    &#151;
+    %span.date_end
+      = f.date_select :date_end
+    
   %p
     = f.label :message, t('labels.message')
     %br
