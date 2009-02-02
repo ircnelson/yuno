@@ -25,9 +25,5 @@
           = u.login
         %td
           == (#{link_to t('link.edit'), edit_user_path(u)} | #{(!u.suspended?) ? link_to(t('link.suspend'), suspend_user_path(u)) : link_to(t('link.unsuspend'), unsuspend_user_path(u))})
-  - if @users.blank?
-    %tr
-      %td
-        Nenhum usuário cadastrado
 
 = will_paginate @users

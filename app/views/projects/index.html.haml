@@ -22,4 +22,4 @@
           %td
             = project.client.coordinator
           %td
-            = project.tasks.maximum('commented_at').to_s
+            = l(project.tasks.maximum('commented_at'))

@@ -20,20 +20,18 @@
 #project-tasks.main-box
   %h2
     = t('projects.tasks')
-    (
-    = @project.tasks.count
-    )
+    = "(#{link_to(@project.tasks.count, project_tasks_path(@project))})"
   %table{ :width => "100%" }
     %thead
       %tr
         %th{ :width => "10" }
-        %th{ :width => "290" }
+        %th{ :width => "350" }
           = t('header.name')
-        %th{ :width => "40" }
+        %th{ :width => "30" }
           = t('header.date_start')
-        %th{ :width => "40" }
+        %th{ :width => "35" }
           = t('header.date_end')
-        %th{ :width => "40" }
+        %th{ :width => "20" }
           = t('header.comments')
     %tbody
       - @tasks.each do |task|
@@ -43,9 +41,9 @@
           %td
             = link_to(task.name, project_task_path(@project, task))
           %td
-            = task.date_start
+            = l(task.date_start)
           %td
-            = task.date_end
+            = l(task.date_end)
           %td{ :align => "center" }
             = task.comments.count
 = page_entries_info @tasks

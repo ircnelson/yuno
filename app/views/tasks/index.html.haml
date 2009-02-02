@@ -1,9 +1,11 @@
 #tasks.main-box
   %h2
-    = t('header.box.tasks')
+    = t('header.box.all_tasks_of')
+    = link_to(@project.name.upcase, @project)
   %table
     %thead
       %tr
+        %th{ :width => "10" }
         %th{ :width => "80" }
           = t('header.date')
         %th{ :width => "80" }
@@ -18,6 +20,8 @@
       - @tasks.each do |task|
         - created_at = task.created_at
         %tr{ :class => cycle('light', 'dark') }
+          %td
+            = image_tag(state(task.state), :alt => t("legend.tasks.#{task.state}"))
           %td
             = created_at.strftime("%D")
           %td

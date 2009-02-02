@@ -187,6 +187,7 @@ br:
       logons: 'Últimos acessos'
       projects: 'Projetos'
       clients: 'Clientes'
+      all_tasks_of: 'Tarefas de:'
     client:
       field1: 'Dados Cadastrais'
       field2: 'Informações Complementares'
@@ -195,6 +196,7 @@ br:
     projects: 'Projetos'
     clients: 'Clientes'
     users: 'Usuários'
+    tasks: 'Tarefas'
     edit: 'Editar'
     close: 'Fechar'
     open: 'Abrir'
