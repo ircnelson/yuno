@@ -140,6 +140,9 @@ br:
       register: 'registrar'
       activate: 'ativar'
       stats: 'estatisticas'
+  pagination:
+    previous_label: '&laquo; Anterior'
+    next_label: 'Próxima &raquo;'
   labels:
     name: 'Nome:'
     login: 'Login:'
@@ -155,6 +158,11 @@ br:
     coordinator: 'Coordenador:'
     date_start: 'Data Inicial:'
     date_end: 'Data Final:'
+  legend:
+    tasks:
+      pending: 'Aguardando resposta'
+      opened: 'Aberto/Respondido'
+      closed: 'Fechado/Resolvido'
   header:
     date: 'Data'
     time: 'Hora'

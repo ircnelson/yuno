@@ -1,3 +1,10 @@
+- content_for(:sidebar) do
+  %ul.legend
+    - %w(pending opened closed).each do |state|
+      %li
+        = "#{image_tag(state(state.to_s))}"
+        = t("legend.tasks.#{state}")
+
 - content_for(:menubar) do
   %ul#submenu
     %li
@@ -19,10 +26,9 @@
   %table{ :width => "100%" }
     %thead
       %tr
-        %th{ :width => "300" }
+        %th{ :width => "10" }
+        %th{ :width => "290" }
           = t('header.name')
-        %th{ :width => "40" }
-          = t('header.status')
         %th{ :width => "40" }
           = t('header.date_start')
         %th{ :width => "40" }
@@ -33,9 +39,9 @@
       - @project.tasks.reverse.each do |task|
         %tr
           %td
+            = image_tag(state(task.state), :alt => t("legend.tasks.#{task.state}"))
+          %td
             = link_to(task.name, project_task_path(@project, task))
-          %td{ :class => state(task.state) }
-            = t("tasks.state.#{task.state}")
           %td
             = task.date_start
           %td

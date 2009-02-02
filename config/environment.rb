@@ -83,6 +83,4 @@ end
 
 require 'rubygems'
 require 'sqlite3'
-require 'brhelper'
-require 'will_paginate'
 ActiveRecord::Base.time_zone_aware_attributes = false

@@ -7,6 +7,9 @@ html, body {
   list-style: none;
   height: 100%; }
 
+ul.legend {
+  list-style: none; }
+
 h1 {
   font: normal 12px/1.5em tahoma, verdana, arial, helvetica, sans-serif;
   margin: 0;
@@ -64,6 +67,14 @@ h4 p {
   margin: 0;
   padding: 0;
   font-size: 80%; }
+
+fieldset.field_box {
+  width: 45%;
+  margin: 0 10px;
+  float: left;
+  border: 1px solid #ddd; }
+fieldset legend {
+  color: #7A9FFF; }
 
 form p {
   margin: 5px 0; }
@@ -140,21 +151,12 @@ a {
   background: #ffffff; }
   #main table {
     width: 100%; }
-    #main table tr {
-      text-align: left; }
-      #main table tr th {
-        padding: 5px; }
-      #main table tr td {
-        font-size: 12px;
-        padding: 6px 2px; }
-        #main table tr td.state_pending {
-          color: #ff0000;
-          font-size: 11px;
-          font-weight: bold; }
-        #main table tr td.state_opened {
-          color: #0000ff;
-          font-size: 11px;
-          font-weight: bold; }
+    #main table tr th {
+      text-align: left;
+      padding: 5px; }
+    #main table tr td {
+      font-size: 12px;
+      padding: 6px 2px; }
   #main .main-box {
     border: 1px solid #ddd;
     margin: 0 0 20px 0; }
@@ -168,14 +170,6 @@ a {
         font-size: 14px; }
         #main .main-box ul li a {
           text-decoration: none; }
-
-fieldset.field_box {
-  width: 45%;
-  margin: 0 10px;
-  float: left;
-  border: 1px solid #ddd; }
-fieldset legend {
-  color: #7A9FFF; }
 
 p.submit_area {
   margin: 10px;

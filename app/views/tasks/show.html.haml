@@ -20,11 +20,9 @@
       = anchor("comment-#{comment.id}")
       - div_for(comment, :class => cycle('light', 'dark')) do
         %h6
-          %span.date
-            = comment.created_at.to_s
-          %span.user-name
-            = comment.user.name
-        = simple_format(comment.message)
+          %span.date= comment.created_at.to_s
+          %span.user-name= comment.user.name
+        = RedCloth.new(comment.message).to_html
     = will_paginate @comments
   - else
     %h5

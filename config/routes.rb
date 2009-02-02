@@ -1,13 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-	def translate(*args)
-  	I18n.translate(*args).downcase
-  end
-  alias :t :translate
-  def localize(*args)
-      I18n.localize *args
-	end
-	alias :l :localize
+	include Translate
 
 	map.aliases :resources, :projects => t('routes.resources.projects'),
 							:comments => t('routes.resources.comments'),

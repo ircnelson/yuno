@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
 	cattr_reader :per_page
-  @@per_page = 5
+  @@per_page = 10
 
 	belongs_to :task
 	belongs_to :user

@@ -7,6 +7,7 @@
 %table
   %thead
     %tr
+      %th{ :width => '10' }
       %th{ :width => '150' }
         Nome
       %th
@@ -16,6 +17,8 @@
   %tbody
     - @users.each do |u|
       %tr
+        %td
+          = image_tag(state(u.state))
         %td
           = u.name
         %td
