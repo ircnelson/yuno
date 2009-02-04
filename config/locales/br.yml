@@ -120,6 +120,8 @@ br:
       created: 'Criado com sucesso.'
       updated: 'Atualizado com sucesso.'
       comment: 'Comentário enviado com sucesso.'
+      signup_notification: 'Por favor, ative sua conta.'
+      activation: 'Sua conta foi ativada com sucesso!'
   routes:
     resources:
       projects: 'projetos'
