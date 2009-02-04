@@ -141,13 +141,13 @@ class UsersController < ApplicationController
 		# Track failed login attempts
 		def note_failed_signin
 			if params[:login].blank?
-			  flashmsg = t('messages.authentication.blank_login')
+			  flashmsg = t('flash.authentication.blank_login')
 			elsif params[:login] && params[:password].blank?
-			  flashmsg = t('messages.authentication.blank_password')
+			  flashmsg = t('flash.authentication.blank_password')
 			else
 			  user = User.find_by_login(params[:login])
 			  if !user.active?
-			    flashmsg = t('messages.authentication.not_activated')
+			    flashmsg = t('flash.authentication.not_activated')
 			  end
 			end
 		  flash[:error] = flashmsg
