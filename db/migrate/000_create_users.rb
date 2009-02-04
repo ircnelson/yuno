@@ -14,11 +14,17 @@ class CreateUsers < ActiveRecord::Migration
       t.column :activated_at,								:datetime
       t.column :state,												:string, :null => :no, :default => 'passive'
       t.column :deleted_at,									:datetime
-      t.column :level,												:string, :default => "normal", :null => true
+      t.column :level,												:string, :default => 'normal', :null => true
     end
     add_index :users, :login, :unique => true
-    user = User.create(:name => "Administrador", :login => "Admin", :password => "rR1121", :password_confirmation => "rR1121", :email => "admin@yuno.com.br", :level => "admin")
-    user.activate!
+    admin = User.create(:name => "Administrador", :login => "Admin", :password => "rR1121", :password_confirmation => "rR1121", :email => "admin@yuno.com.br", :level => "admin")
+    admin.activate!
+    
+    nelson = User.create(:name => "Nelson Corrêa V. Júnior", :login => "nelson", :password => "487569", :password_confirmation => "487569", :email => "nelson@yuno.com.br", :level => "admin")
+    nelson.activate!
+    
+    raphael = User.create(:name => "Raphael Cavassan Dourado", :login => "raphael", :password => "rph_dourado", :password_confirmation => "rph_dourado", :email => "raphael@yuno.com.br", :level => "admin")
+    raphael.activate!
   end
 
   def self.down

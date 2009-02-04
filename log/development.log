@@ -7991,3 +7991,12 @@ Failed login for '' from 127.0.0.1 at Wed Feb 04 14:27:10 UTC 2009
 Rendering template within layouts/application
 Rendering users/join
 Completed in 65ms (View: 36, DB: 0) | 200 OK [http://localhost/users/auth]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-04 12:04:40) [GET]
+  [4;36;1mTask Load (7.5ms)[0m   [0;1mSELECT * FROM "tasks" WHERE (created_at > '2009-02-02 15:04:40') ORDER BY id desc LIMIT 5[0m
+  [4;35;1mComment Load (1.1ms)[0m   [0mSELECT * FROM "comments" WHERE (created_at > '2009-02-02 15:04:40') ORDER BY id desc LIMIT 5[0m
+  [4;36;1mConnection Load (0.6ms)[0m   [0;1mSELECT * FROM "connections" ORDER BY id desc LIMIT 5[0m
+Rendering template within layouts/application
+Rendering home/index
+Completed in 554ms (View: 381, DB: 9) | 200 OK [http://localhost/]
