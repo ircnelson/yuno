@@ -38,17 +38,17 @@ class UsersController < ApplicationController
 		    self.current_user = user
 		    new_cookie_flag = (params[:remember_me] == "1")
 		    handle_remember_cookie! new_cookie_flag
+		    now = Time.now.to_s(:db)
+		    user.update_attribute(:session_at, now)
+		    last_connection = user.connections.build(:logon => now, :address_ip => request.remote_ip)
+		    last_connection.save rescue nil
 		    respond_to do |format|
 		    	format.html do
    			    flash[:notice] = t('flash.login')
 		    		redirect_back_or_default('/')
 		    	end
 				  format.js {	render(:update) { |page| page.reload } }
-				end    
-		    now = Time.now.to_s(:db)
-		    user.update_attribute(:session_at, now)
-		    last_connection = user.connections.build(:logon => now, :address_ip => request.remote_ip)
-		    last_connection.save rescue nil
+				end
 		  else
     	  failed_signin
   		  respond_to do |format|
@@ -60,8 +60,8 @@ class UsersController < ApplicationController
 		    	end
 				  format.js do
 				    render(:update) do |page|
-				    	page["#flash-error"].show().text(@flashmsg)
-				    	page["#spinner"].hide
+				    	page["flash-error"].show().text(@flashmsg)
+				    	page["spinner"].hide
 				    end
 				  end
 				end
@@ -154,6 +154,8 @@ class UsersController < ApplicationController
 			  @flashmsg = t('flash.authentication.blank_login')
 			elsif params[:login] && params[:password].blank?
 			  @flashmsg = t('flash.authentication.blank_password')
+			elsif !(User.authenticate(params[:login], params[:password]))
+				@flashmsg = t('flash.authentication.not_found')
 			else
 			  user = User.find_by_login(params[:login])
 			  if !user.active?

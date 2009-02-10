@@ -113,6 +113,7 @@ br:
       blank_login: 'Digite seu nome de usuário.'
       blank_password: 'Digite a sua senha.'
       not_activated: 'Este nome de usuário ainda não está ativado.'
+      not_found: 'Nome de usuário e/ou senha não conferem. Por favor, tente novamente.'
       completed: 'Seu registro foi ativado com sucesso!'
       code_blank: 'O código de autenticação não confere com o enviado para o seu e-mail.'
       code_missing: 'Nenhum usuário foi encontrado com este código de ativação ou já está ativado. Tente logar.'

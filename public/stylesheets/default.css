@@ -128,7 +128,7 @@ a {
     .pagination a:hover, .pagination a:focus {
       text-decoration: underline; }
 
-#spinner.spinner {
+#spinner {
   float: left;
   padding: 5px;
   position: absolute; }
@@ -175,30 +175,28 @@ a {
   background: #D2FF7F;
   color: #5A8B00; }
 
-#loginContent {
+#hbarContent {
   width: 100%;
   position: absolute;
   text-align: right; }
-
-#loginContent #loginForm {
-  text-align: center;
-  float: right;
-  width: 40%;
-  background: #A6BFFF;
-  padding: 55px 10px 10px 10px; }
-
-#loginContent p.toggle {
-  cursor: pointer;
-  border-top: 5px solid #A6BFFF;
-  margin: 0 1px 0 0;
-  clear: both;
-  height: auto; }
-#loginContent a.toggleLogin {
-  position: relative;
-  background: #A6BFFF;
-  color: #fff;
-  padding: 2px 4px;
-  margin-right: 50px; }
+  #hbarContent p.toggle {
+    cursor: pointer;
+    border-top: 5px solid #A6BFFF;
+    margin: 0 1px 0 0;
+    clear: both;
+    height: auto; }
+  #hbarContent a.toggleLogin {
+    position: relative;
+    background: #A6BFFF;
+    color: #fff;
+    padding: 2px 4px;
+    margin-right: 50px; }
+  #hbarContent #loginForm {
+    text-align: center;
+    float: right;
+    width: 40%;
+    background: #A6BFFF;
+    padding: 55px 10px 10px 10px; }
 
 #main {
   min-height: 430px;

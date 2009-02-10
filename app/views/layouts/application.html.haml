@@ -7,7 +7,7 @@
     = yield :header
   %body
     #page
-      #loginContent
+      #hbarContent
         - if !logged_in?
           #loginForm{ :style => "display: none;" }
             - form_remote_tag(:url => url_for(:controller => "users", :action => "login", :format => :js), :method => :post, :loading => "load()") do
@@ -16,7 +16,7 @@
               = label_tag :password, t('labels.password')
               = password_field_tag :password
               = submit_tag t('link.join')
-              #spinner.spinner{ :style => "display: none;" }
+              #spinner{ :style => "display: none;" }
                 =image_tag('loading.gif')
           %p.toggle= link_to(t('link.join'), login_path, :class => 'toggleLogin')
         - else
