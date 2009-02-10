@@ -3,7 +3,7 @@ require 'gruff'
 
 class HomeController < ApplicationController
 	
-	before_filter :admin_required, :only => [:stats]
+	#before_filter :admin_required, :only => [:stats]
 
   def index
   	@tasks = Task.recent.all :limit => 5, :order => 'id desc'
@@ -49,7 +49,7 @@ class HomeController < ApplicationController
     g.data("Tasks", keys.collect {|k,v| @stats_tasks[v].nil? ? 0 : @stats_tasks[v]})
  
     g.labels = keys
-		g.write("#{RAILS_ROOT}/public/images/stats.png")
-    #send_data(g.to_blob, :disposition => 'inline', :type => 'image/png', :filename => "site-stats.png")
+		#g.write("#{RAILS_ROOT}/public/images/stats.png")
+    send_data(g.to_blob, :disposition => 'inline', :type => 'image/png', :filename => "site-stats.png")
   end
 end
