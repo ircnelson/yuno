@@ -130,6 +130,12 @@ a
     :background #ddd
     :border 1px solid #ccc
 
+.left
+  :float left
+
+.right
+  :float right
+
 .pagination
   :background #F1F1F1
   :border 1px solid #E5E5E5
@@ -148,11 +154,18 @@ a
     &:hover, &:focus
       :text-decoration underline
 
+#spinner.spinner
+  :float left
+  :padding 5px
+  :position absolute
+
 #header
   +header-and-footer
   :height 90px
   :border-bottom 1px solid #A6BFFF
 
+  h1
+    :position relative
   h1 a
     :float left
     :text-align center
@@ -181,6 +194,33 @@ a
   :border-top-color #E8FFBF
   :background #D2FF7F
   :color #5A8B00
+
+#loginContent
+  :width 100%
+  :position absolute
+  :text-align right
+
+#loginContent #loginForm
+  :text-align center
+  :float right
+  :width 40%
+  :background #A6BFFF
+  :padding 55px 10px 10px 10px
+
+#loginContent
+  p.toggle
+    :cursor pointer
+    :border-top 5px solid #A6BFFF
+    :margin 0 1px 0 0
+    :clear both
+    :height auto
+
+  a.toggleLogin
+    :position relative
+    :background #A6BFFF
+    :color #fff
+    :padding 2px 4px
+    :margin-right 50px
 
 #main
   :min-height 430px

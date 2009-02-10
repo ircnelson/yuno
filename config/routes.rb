@@ -26,7 +26,7 @@ ActionController::Routing::Routes.draw do |map|
 	
 	map.stats "#{t('routes.actions.stats')}", :controller => 'home', :action => 'stats'
   map.logout "#{t('routes.actions.logout')}", :controller => 'users', :action => 'logout'
-  map.join "#{t('routes.actions.login')}", :controller => 'users', :action => 'join'
+  map.login "#{t('routes.actions.login')}", :controller => 'users', :action => 'login'
   map.register "#{t('routes.actions.register')}", :controller => 'users', :action => 'new'
   map.profile "#{t('routes.actions.profile')}", :controller => 'users', :action => 'show'
 	map.activate "#{t('routes.actions.activate')}/:activation_code", :controller => 'users', :action => 'activate', :activation_code => nil

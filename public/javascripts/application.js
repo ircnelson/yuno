@@ -1,4 +1,15 @@
-function mark_for_destroy(element) {
-    $(element).next('.should_destroy').value = 1
-    $(element).up('.tarefa').hide();
-}
+$(document).ready(function() {
+	$('#loginForm').hide();
+	$('p.toggle').click(function() {
+	  $(this).prev().slideToggle();
+	});
+	$('a.toggleLogin').click(function() {
+		$('#loginForm').slideToggle(300);
+		return false;
+	});
+});
+function load() { $('#spinner').show().css("display", "inline"); }
+
+jQuery.ajaxSetup({ 
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")} 
+})

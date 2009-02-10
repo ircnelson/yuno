@@ -1,0 +1,4 @@
+db/
+log/
+config/environment.rb
+public/images/stats.png

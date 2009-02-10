@@ -1,12 +1,4 @@
 - if is_admin?
-  - content_for(:sidebar) do
-    - form_remote_tag :url => {:controller => "home", :action => "search"}, :update => :results, :complete => visual_effect(:highlight, 'results') do
-      = label_tag :q, 'O que procura?'
-      %br/
-      = text_field_tag :q
-      = submit_tag 'procurar'
-    #results
-
   #recent-tasks.main-box
     %h2
       = t('header.box.tasks')

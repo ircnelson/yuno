@@ -26,37 +26,47 @@ class UsersController < ApplicationController
     end
   end
 
-	# join.html.erb
-	def join
-		@user = User.new
-	end
-
 	# Logar conta de usuário
-	def auth
-    logout_keeping_session!
-    user = User.authenticate(params[:login], params[:password])
-    if user
-      # Protects against session fixation attacks, causes request forgery
-      # protection if user resubmits an earlier form using back
-      # button. Uncomment if you understand the tradeoffs.
-      # reset_session
-      self.current_user = user
-      new_cookie_flag = (params[:remember_me] == "1")
-      handle_remember_cookie! new_cookie_flag
-      redirect_back_or_default('/')
-      flash[:notice] = t('flash.login')
-      
-      now = Time.now.to_s(:db)
-      user.update_attribute(:session_at, now)
-      last_connection = user.connections.build(:logon => now, :address_ip => request.remote_ip)
-      last_connection.save rescue nil
-    else
-      note_failed_signin
-      @login = params[:login]
-      @remember_me = params[:remember_me]
-      render :action => "join"
-      #redirect_to join_path
-    end
+	def login
+		if !request.post?
+			@user = User.new
+		else
+		  logout_keeping_session!
+		  user = User.authenticate(params[:login], params[:password])
+		  if user
+		    # reset_session
+		    self.current_user = user
+		    new_cookie_flag = (params[:remember_me] == "1")
+		    handle_remember_cookie! new_cookie_flag
+		    respond_to do |format|
+		    	format.html do
+   			    flash[:notice] = t('flash.login')
+		    		redirect_back_or_default('/')
+		    	end
+				  format.js {	render(:update) { |page| page.reload } }
+				end    
+		    now = Time.now.to_s(:db)
+		    user.update_attribute(:session_at, now)
+		    last_connection = user.connections.build(:logon => now, :address_ip => request.remote_ip)
+		    last_connection.save rescue nil
+		  else
+    	  failed_signin
+  		  respond_to do |format|
+		    	format.html do
+				    @login = params[:login]
+		  	    @remember_me = params[:remember_me]
+		    	  render :action => "login"
+   	  		  flash[:error] = @flashmsg
+		    	end
+				  format.js do
+				    render(:update) do |page|
+				    	page["#flash-error"].show().text(@flashmsg)
+				    	page["#spinner"].hide
+				    end
+				  end
+				end
+		  end
+		end
   end
 
 	# Logout
@@ -138,19 +148,18 @@ class UsersController < ApplicationController
   	def find_user
 		  @user = User.find(params[:id])
 		end
-		# Track failed login attempts
-		def note_failed_signin
+
+		def failed_signin
 			if params[:login].blank?
-			  flashmsg = t('flash.authentication.blank_login')
+			  @flashmsg = t('flash.authentication.blank_login')
 			elsif params[:login] && params[:password].blank?
-			  flashmsg = t('flash.authentication.blank_password')
+			  @flashmsg = t('flash.authentication.blank_password')
 			else
 			  user = User.find_by_login(params[:login])
 			  if !user.active?
-			    flashmsg = t('flash.authentication.not_activated')
+			    @flashmsg = t('flash.authentication.not_activated')
 			  end
 			end
-		  flash[:error] = flashmsg
 		  logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
 		end
 end

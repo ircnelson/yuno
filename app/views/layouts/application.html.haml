@@ -2,17 +2,31 @@
 %html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
   %head
     %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
-    = javascript_include_tag :defaults
+    = javascript_include_tag :defaults, 'jquery.corner.js'
     = stylesheet_link_tag 'default'
     = yield :header
   %body
     #page
+      #loginContent
+        - if !logged_in?
+          #loginForm{ :style => "display: none;" }
+            - form_remote_tag(:url => url_for(:controller => "users", :action => "login", :format => :js), :method => :post, :loading => "load()") do
+              = label_tag :login, t('labels.login')
+              = text_field_tag :login
+              = label_tag :password, t('labels.password')
+              = password_field_tag :password
+              = submit_tag t('link.join')
+              #spinner.spinner{ :style => "display: none;" }
+                =image_tag('loading.gif')
+          %p.toggle= link_to(t('link.join'), login_path, :class => 'toggleLogin')
+        - else
+          %p
+            = link_to(current_user.name, profile_path)
+            = "(#{link_to(t('link.logout'), logout_path)})"
       #header
         %h1
           %a{ :href => "/" }
             YUNO
-        %p#login
-          = logged_in? ? "#{link_to(current_user.login, profile_path)} (#{link_to(t('link.logout'), logout_path)})" : (check_url("users", controller.controller_name)) ? link_to(t('link.home'), "/") : link_to(t('link.join'), join_path)
       #content
         #menubar
           %ul#menu
@@ -30,8 +44,9 @@
         #sidebar
           = yield :sidebar
         #main
-          - flash.each do |name, msg|
-            = content_tag :div, msg, :id => "flash-#{name}"
+          #flash
+            = content_tag(:div, flash[:notice], :style => 'display: none;', :class => "flash", :id => "flash-notice")
+            = content_tag(:div, flash[:error], :style => 'display: none;', :class => "flash", :id => "flash-error")
           = yield
       #footer
         %small
